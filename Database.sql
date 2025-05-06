@@ -1,0 +1,2 @@
+use cnpm;
+show databases;

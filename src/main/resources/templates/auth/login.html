@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f4f6;
+        }
+        .form-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h1 {
+            margin-bottom: 1rem;
+            font-size: 24px;
+            text-align: center;
+        }
+        .form-container input {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+        .form-container a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .form-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h1>Login</h1>
+    <form th:action="@{/auth/login}" th:object="${loginForm}" method="post">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" th:field="*{username}" placeholder="Enter username" required/>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" th:field="*{password}" placeholder="Enter password" required/>
+        </div>
+        <div th:if="${loginError}" th:text="${loginError}" class="text-danger"></div>
+        <button type="submit">Login</button>
+    </form>
+
+    <p>
+        Chưa có tài khoản?
+        <a th:href="@{/auth/register}">Register</a>
+    </p>
+</div>
+</body>
+</html>
