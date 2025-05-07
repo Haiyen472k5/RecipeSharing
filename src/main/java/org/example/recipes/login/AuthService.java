@@ -1,8 +1,9 @@
 package org.example.recipes.login;
 
 import java.util.Optional;
-
-import org.example.recipes.Exception.UsernameExistException;
+import org.example.recipes.exception.EmailExistsException;
+import org.example.recipes.exception.UsernameExistsException;
+import org.example.recipes.exception.BusinessException;
 import org.example.recipes.Users;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -19,11 +20,13 @@ public class AuthService {
     }
 
     /**
-     * Kiểm tra đăng nhập với username và mật khẩu thô (rawPassword).
-     * @return true nếu hợp lệ, false nếu không.
+     * Kiểm tra đăng nhập bằng username hoặc email.
+     * @param principal username hoặc email
+     * @param rawPassword mật khẩu thuần
+     * @return true nếu đăng nhập hợp lệ, false nếu không
      */
-    public boolean login(String username, String rawPassword) {
-        Optional<Users> userOpt = userRepo.findByUsername(username);
+    public boolean login(String principal, String rawPassword) {
+        Optional<Users> userOpt = userRepo.findByUsernameOrEmail(principal, principal);
         if (userOpt.isEmpty()) {
             return false;
         }
@@ -32,12 +35,15 @@ public class AuthService {
     }
 
     /**
-     * Đăng ký user mới. Ném UsernameExistsException nếu trùng.
+     * Đăng ký user mới. Ném UsernameExistsException hoặc EmailExistsException nếu trùng.
      */
     @Transactional
-    public void register(String username, String email, String rawPassword) throws UsernameExistException {
+    public void register(String username, String email, String rawPassword) {
         if (userRepo.existsByUsername(username)) {
-            throw new UsernameExistException("Username '" + username + "' đã tồn tại.");
+            throw new UsernameExistsException();
+        }
+        if (userRepo.existsByEmail(email)) {
+            throw new EmailExistsException();
         }
         Users u = new Users();
         u.setUsername(username);

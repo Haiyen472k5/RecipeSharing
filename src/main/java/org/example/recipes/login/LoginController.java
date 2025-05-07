@@ -1,9 +1,13 @@
 package org.example.recipes.login;
 
-import org.example.recipes.Exception.UsernameExistException;
+import org.example.recipes.exception.UsernameExistsException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/auth")
@@ -15,21 +19,25 @@ public class LoginController {
         this.authService = authService;
     }
 
-    // 1) Hiển thị trang login
+    // Hiển thị trang login, có thể nhận flag registered để show thông báo
     @GetMapping("/login")
-    public String showLoginPage(Model model) {
+    public String showLoginPage(@RequestParam(value = "registered", required = false) String registered,
+                                Model model) {
         model.addAttribute("loginForm", new Login());
+        if (registered != null) {
+            model.addAttribute("loginMessage", "Đăng ký thành công, vui lòng đăng nhập.");
+        }
         return "auth/login";
     }
 
-    // 2) Hiển thị trang register
+    // Hiển thị trang đăng ký
     @GetMapping("/register")
     public String showRegisterPage(Model model) {
         model.addAttribute("registerForm", new Register());
         return "auth/register";
     }
 
-    // 3) Xử lý login
+    // Xử lý đăng nhập
     @PostMapping("/login")
     public String handleLogin(@ModelAttribute("loginForm") Login form,
                               Model model) {
@@ -38,19 +46,18 @@ public class LoginController {
             model.addAttribute("loginError", "Sai username hoặc password");
             return "auth/login";
         }
-        // Sau khi login thành công, thường redirect về trang chủ
-        return "redirect:/auth/register";
+        // Đăng nhập thành công -> chuyển đến trang chủ
+        return "redirect:/";
     }
 
-    // 4) Xử lý register
+    // Xử lý đăng ký
     @PostMapping("/register")
     public String handleRegister(@ModelAttribute("registerForm") Register form,
                                  Model model) {
         try {
             authService.register(form.getUsername(), form.getEmail(), form.getPassword());
-            // đăng ký xong thì chuyển về login, kèm flag thông báo
             return "redirect:/auth/login?registered";
-        } catch (UsernameExistException e) {
+        } catch (UsernameExistsException e) {
             model.addAttribute("registerError", "Username đã tồn tại");
             return "auth/register";
         }
