@@ -7,9 +7,10 @@ import static org.mockito.Mockito.when;
 import java.util.Optional;
 
 import org.example.recipes.exception.UsernameExistsException;
-import org.example.recipes.Users;
+import org.example.recipes.login.IdGeneratorService;
+import org.example.recipes.user.Users;
 import org.example.recipes.login.AuthService;
-import org.example.recipes.login.UserRepository;
+import org.example.recipes.user.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
@@ -22,6 +23,9 @@ class AuthServiceTest {
 
     @Mock
     private PasswordEncoder passwordEncoder;
+
+    @Mock
+    private IdGeneratorService idGeneratorService;
 
     @InjectMocks
     private AuthService authService;

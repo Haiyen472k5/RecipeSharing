@@ -63,16 +63,24 @@
 <body>
 <div class="form-container">
     <h1>Login</h1>
+
+    <!-- Thông báo sau khi vừa đăng ký thành công -->
+    <div th:if="${loginMessage}"
+         th:text="${loginMessage}"
+         style="color: green; margin-bottom: 1rem;"></div>
+
     <form th:action="@{/auth/login}" th:object="${loginForm}" method="post">
-        <div>
-            <label for="username">Username:</label>
-            <input type="text" id="username" th:field="*{username}" placeholder="Enter username" required/>
-        </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" th:field="*{password}" placeholder="Enter password" required/>
-        </div>
-        <div th:if="${loginError}" th:text="${loginError}" class="text-danger"></div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" th:field="*{username}" placeholder="Enter username" required/>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" th:field="*{password}" placeholder="Enter password" required/>
+
+        <!-- lỗi đăng nhập -->
+        <div th:if="${loginError}"
+             th:text="${loginError}"
+             style="color: red; margin-top: .5rem;"></div>
+
         <button type="submit">Login</button>
     </form>
 

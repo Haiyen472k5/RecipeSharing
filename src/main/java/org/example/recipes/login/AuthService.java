@@ -3,8 +3,8 @@ package org.example.recipes.login;
 import java.util.Optional;
 import org.example.recipes.exception.EmailExistsException;
 import org.example.recipes.exception.UsernameExistsException;
-import org.example.recipes.exception.BusinessException;
-import org.example.recipes.Users;
+import org.example.recipes.user.UserRepository;
+import org.example.recipes.user.Users;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,10 +13,14 @@ import org.springframework.transaction.annotation.Transactional;
 public class AuthService {
     private final UserRepository userRepo;
     private final PasswordEncoder passwordEncoder;
+    private final IdGeneratorService idGenerator;
 
-    public AuthService(UserRepository userRepo, PasswordEncoder passwordEncoder) {
+    public AuthService(UserRepository userRepo,
+                       PasswordEncoder passwordEncoder,
+                       IdGeneratorService idGenerator) {
         this.userRepo = userRepo;
         this.passwordEncoder = passwordEncoder;
+        this.idGenerator = idGenerator;
     }
 
     /**
@@ -45,7 +49,11 @@ public class AuthService {
         if (userRepo.existsByEmail(email)) {
             throw new EmailExistsException();
         }
+        // sinh ID mới
+        String newId = idGenerator.generateId();
+
         Users u = new Users();
+        u.setId(newId);
         u.setUsername(username);
         u.setEmail(email);
         u.setPassword(passwordEncoder.encode(rawPassword));
