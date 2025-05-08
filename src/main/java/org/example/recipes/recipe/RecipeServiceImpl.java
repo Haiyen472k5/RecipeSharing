@@ -1,9 +1,12 @@
 package org.example.recipes.recipe;
 
 import org.example.recipes.login.IdGeneratorService;
+import org.example.recipes.category.CategoryService;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.example.recipes.category.CategoryService;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -21,6 +24,18 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
+    public List<Recipes> getInitialRecipes(int limit) {
+        // “first page” → use the default findLatest(limit)
+        return repo.findLatest(limit);
+    }
+
+    @Override
+    public List<Recipes> getMoreRecipes(LocalDateTime before, int limit) {
+        // “cursor pagination”
+        return repo.findByCreatedAtBeforeOrderByCreatedAtDesc(before, PageRequest.of(0, limit));
+    }
+
+    @Override
     @Transactional
     public Recipes create(Recipes form) {
         String id = idGen.generateId();
@@ -32,10 +47,7 @@ public class RecipeServiceImpl implements RecipeService {
         r.setIngredients(form.getIngredients());
         r.setCategory(form.getCategory());
         r.setAuthorId(form.getAuthorId());
-        // optional
-        // r.setImageUrl(form.getImageUrl()); // add field as needed
         repo.save(r);
-        catService.recordCategory(form.getCategory());
         return r;
     }
 
@@ -47,12 +59,10 @@ public class RecipeServiceImpl implements RecipeService {
         r.setInstruction(form.getInstruction());
         r.setDescription(form.getDescription());
         r.setIngredients(form.getIngredients());
-        // nếu category thay đổi thì record mới
         if (!r.getCategory().equals(form.getCategory())) {
             r.setCategory(form.getCategory());
             catService.recordCategory(form.getCategory());
         }
-        // xử lý image/video/notes tương tự
         return r;
     }
 
@@ -69,7 +79,8 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public List<Recipes> findLatest() {
-        return repo.findTop10ByOrderByRecipeIdDesc();
+        // legacy “top 10 by ID” behavior, if you still need it
+        return repo.findLatest(10);
     }
 
     @Override

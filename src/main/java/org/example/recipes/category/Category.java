@@ -7,11 +7,14 @@ import jakarta.persistence.*;
 public class Category {
 
     @Id
-    @Column(name = "name", length = 100)
+    @Column(name = "category_name", length = 100)
     private String name;
 
     @Column(name = "usage_count", nullable = false)
     private long usageCount;
+
+    @Column(name = "category_id", length = 10)
+    private String categoryId;
 
     public Category() {}
 
@@ -20,11 +23,34 @@ public class Category {
         this.usageCount = 1;
     }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public String getName() {
+        return name;
+    }
 
-    public long getUsageCount() { return usageCount; }
-    public void setUsageCount(long usageCount) { this.usageCount = usageCount; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public void increment() { this.usageCount++; }
+    public long getUsageCount() {
+        return usageCount;
+    }
+
+    public void setUsageCount(long usageCount) {
+        this.usageCount = usageCount;
+    }
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    /**
+     * Increment the usage count when this category is used.
+     */
+    public void increment() {
+        this.usageCount++;
+    }
 }

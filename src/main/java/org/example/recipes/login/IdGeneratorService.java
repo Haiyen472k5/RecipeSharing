@@ -9,8 +9,8 @@ import java.util.Optional;
 @Service
 public class IdGeneratorService {
     private final UserRepository userRepo;
-    private static final String PREFIX = "UUID";
-    private static final int PAD_SIZE = 6;
+    private static final String PREFIX = "ID";
+    private static final int PAD_SIZE = 8;
 
     public IdGeneratorService(UserRepository userRepo) {
         this.userRepo = userRepo;
