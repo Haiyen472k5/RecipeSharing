@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class Recipes {
 
     @Id
-    @Column(name = "recipe_id", length = 8, nullable = false)
+    @Column(name = "recipe_id", length = 10, nullable = false)
     private String recipeId;
 
     @Column(name = "name", length = 100)

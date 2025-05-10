@@ -6,4 +6,5 @@ public interface LikeRepository extends JpaRepository<Like, String> {
     int countByRecipeId(String recipeId);
     boolean existsByUserIdAndRecipeId(String userId, String recipeId);
     Like findByUserIdAndRecipeId(String userId, String recipeId);
+    void deleteByUserIdAndRecipeId(String userId, String recipeId);
 }

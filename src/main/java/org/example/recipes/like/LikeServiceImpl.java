@@ -1,15 +1,17 @@
 package org.example.recipes.like;
 
+import org.example.recipes.login.IdGeneratorService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.UUID;
 
 @Service
 public class LikeServiceImpl implements LikeService {
     private final LikeRepository repo;
+    private final IdGeneratorService idGenerator;
 
-    public LikeServiceImpl(LikeRepository repo) {
+    public LikeServiceImpl(LikeRepository repo, IdGeneratorService idGenerator) {
         this.repo = repo;
+        this.idGenerator = idGenerator;
     }
 
     @Override
@@ -27,7 +29,7 @@ public class LikeServiceImpl implements LikeService {
     public void like(String userId, String recipeId) {
         if (!hasLiked(userId, recipeId)) {
             Like e = new Like();
-            e.setLikeId(UUID.randomUUID().toString().substring(0,10));
+            e.setLikeId(idGenerator.generateId());
             e.setUserId(userId);
             e.setRecipeId(recipeId);
             repo.save(e);
@@ -37,7 +39,8 @@ public class LikeServiceImpl implements LikeService {
     @Override
     @Transactional
     public void unlike(String userId, String recipeId) {
-        Like e = repo.findByUserIdAndRecipeId(userId, recipeId);
-        if (e != null) repo.delete(e);
+        if (repo.findByUserIdAndRecipeId(userId, recipeId) != null) {
+            repo.deleteByUserIdAndRecipeId(userId, recipeId);
+        }
     }
 }

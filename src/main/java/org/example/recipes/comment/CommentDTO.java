@@ -1,28 +1,16 @@
 package org.example.recipes.comment;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "comments")
-public class Comment {
-    @Id
-    @Column(name="comment_id", length=10)
-    private String commentId;
+public class CommentDTO {
+    public String commentId;
+    public String recipeId;
+    public String userId;
+    public String content;
+    public LocalDateTime createdAt;
 
-    @Column(name="recipe_id", length=10, nullable=false)
-    private String recipeId;
-
-    @Column(name="user_id", length=10)
-    private String userId;
-
-    @Column(name="comment_content", columnDefinition="TEXT", nullable=false)
-    private String content;
-
-    @Column(name="create_at")
-    private LocalDateTime createdAt;
-
-    public Comment() {}
+    public CommentDTO() {
+    }
 
     public String getCommentId() {
         return commentId;

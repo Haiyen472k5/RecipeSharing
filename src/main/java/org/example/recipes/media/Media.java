@@ -10,7 +10,7 @@ public class Media {
     @Column(name="media_id", length=10)
     private String mediaId;
 
-    @Column(name="recipe_id", length=8, nullable=false)
+    @Column(name="recipe_id", length=10, nullable=false)
     private String recipeId;
 
     @Column(name="file_url", length=255, nullable=false)
