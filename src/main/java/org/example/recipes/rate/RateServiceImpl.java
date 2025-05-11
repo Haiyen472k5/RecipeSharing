@@ -1,15 +1,19 @@
 // src/main/java/org/example/recipes/rate/RateServiceImpl.java
 package org.example.recipes.rate;
 
+import org.example.recipes.login.IdGeneratorService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.UUID;
 
 @Service
 public class RateServiceImpl implements RateService {
     private final RateRepository repo;
+    private final IdGeneratorService idGenerator;
 
-    public RateServiceImpl(RateRepository repo) { this.repo = repo; }
+    public RateServiceImpl(RateRepository repo, IdGeneratorService idGenerator) {
+        this.repo = repo;
+        this.idGenerator = idGenerator;
+    }
 
     @Override
     public float getAverageRating(String recipeId) {
@@ -29,9 +33,10 @@ public class RateServiceImpl implements RateService {
         Rate e = repo.findByUserIdAndRecipeId(userId, recipeId);
         if (e == null) {
             e = new Rate();
-            e.setRateId(UUID.randomUUID().toString().substring(0,10));
+            e.setRateId(idGenerator.generateId());
             e.setUserId(userId);
             e.setRecipeId(recipeId);
+            e.setCreatedAt(java.time.LocalDateTime.now());
         }
         e.setRating(rating);
         repo.save(e);

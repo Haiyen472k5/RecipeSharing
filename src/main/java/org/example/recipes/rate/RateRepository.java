@@ -13,12 +13,8 @@ public interface RateRepository extends JpaRepository<Rate, String> {
     Float findAverageRating(String recipeId);
 
     Rate findByUserIdAndRecipeId(String userId, String recipeId);
-    /** Lấy N món mới nhất, sắp xếp giảm dần theo createdAt */
-    List<Recipes> findByOrderByCreatedAtDesc(Pageable pageable);
 
-    /**
-     * Spring Data sẽ tự động sinh câu query:
-     * SELECT COUNT(*) FROM rates WHERE recipe_id = :recipeId
-     */
+    List<Rate> findByOrderByCreatedAtDesc(Pageable pageable);
+
     int countByRecipeId(String recipeId);
 }

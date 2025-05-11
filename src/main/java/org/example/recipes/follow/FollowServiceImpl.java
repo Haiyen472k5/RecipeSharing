@@ -1,5 +1,6 @@
 package org.example.recipes.follow;
 
+import org.example.recipes.login.IdGeneratorService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.UUID;
@@ -7,8 +8,12 @@ import java.util.UUID;
 @Service
 public class FollowServiceImpl implements FollowService {
     private final FollowRepository repo;
+    private final IdGeneratorService idGenerator;
 
-    public FollowServiceImpl(FollowRepository repo) { this.repo = repo; }
+    public FollowServiceImpl(FollowRepository repo, IdGeneratorService idGenerator) {
+        this.repo = repo;
+        this.idGenerator = idGenerator;
+    }
 
     @Override
     public boolean isFollowing(String follower, String following) {
@@ -20,7 +25,7 @@ public class FollowServiceImpl implements FollowService {
     public void follow(String follower, String following) {
         if (!isFollowing(follower, following)) {
             Follow e = new Follow();
-            e.setFollowId(UUID.randomUUID().toString().substring(0,10));
+            e.setFollowId(idGenerator.generateId());
             e.setFollowerId(follower);
             e.setFollowingId(following);
             repo.save(e);

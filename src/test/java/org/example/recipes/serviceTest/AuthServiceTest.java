@@ -1,4 +1,4 @@
-package org.example.recipes;
+package org.example.recipes.serviceTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.*;

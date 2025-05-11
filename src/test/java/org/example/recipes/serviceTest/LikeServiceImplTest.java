@@ -1,4 +1,4 @@
-package org.example.recipes;
+package org.example.recipes.serviceTest;
 
 import org.example.recipes.like.Like;
 import org.example.recipes.like.LikeRepository;
@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-class LikeServiceTest {
+class LikeServiceImplTest {
     @Mock
     LikeRepository repo;
     @Mock org.example.recipes.login.IdGeneratorService idGen;
