@@ -2,6 +2,8 @@ package org.example.recipes.follow;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "follows",
         uniqueConstraints = @UniqueConstraint(columnNames = {"follower_id","following_id"}))
@@ -15,6 +17,9 @@ public class Follow {
 
     @Column(name="following_id", length=10, nullable=false)
     private String followingId;
+
+    @Column(name="follow_time")
+    private LocalDateTime followTime;
 
     public Follow() {}
 
@@ -40,5 +45,13 @@ public class Follow {
 
     public void setFollowingId(String followingId) {
         this.followingId = followingId;
+    }
+
+    public LocalDateTime getFollowTime() {
+        return followTime;
+    }
+
+    public void setFollowTime(LocalDateTime followTime) {
+        this.followTime = followTime;
     }
 }

@@ -3,7 +3,6 @@ package org.example.recipes.follow;
 import org.example.recipes.login.IdGeneratorService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.UUID;
 
 @Service
 public class FollowServiceImpl implements FollowService {
@@ -28,6 +27,7 @@ public class FollowServiceImpl implements FollowService {
             e.setFollowId(idGenerator.generateId());
             e.setFollowerId(follower);
             e.setFollowingId(following);
+            e.setFollowTime(java.time.LocalDateTime.now());
             repo.save(e);
         }
     }

@@ -19,7 +19,7 @@ public class Comment {
     @Column(name="comment_content", columnDefinition="TEXT", nullable=false)
     private String content;
 
-    @Column(name="create_at")
+    @Column(name="created_at")
     private LocalDateTime createdAt;
 
     public Comment() {}

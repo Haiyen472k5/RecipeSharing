@@ -108,3 +108,58 @@
 2025-05-11T15:08:10.762+07:00  INFO 11064 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-05-11T15:08:10.764+07:00  INFO 11064 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-05-11T15:08:10.769+07:00  INFO 11064 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-11T15:21:53.943+07:00  INFO 21436 --- [main] e.r.RecipeSharingWebsiteApplicationTests : Starting RecipeSharingWebsiteApplicationTests using Java 23.0.1 with PID 21436 (started by admin in C:\Users\admin\OneDrive - vnu.edu.vn\University\Semester IV\CNPM - INT2208 6\RecipeSharingWebsite)
+2025-05-11T15:21:53.946+07:00  INFO 21436 --- [main] e.r.RecipeSharingWebsiteApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2025-05-11T15:21:54.765+07:00  INFO 21436 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-11T15:21:54.906+07:00  INFO 21436 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 130 ms. Found 10 JPA repository interfaces.
+2025-05-11T15:21:55.603+07:00  INFO 21436 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-11T15:21:55.650+07:00  INFO 21436 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-11T15:21:55.679+07:00  INFO 21436 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-11T15:21:55.791+07:00  INFO 21436 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-11T15:21:55.812+07:00  INFO 21436 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-11T15:21:56.085+07:00  INFO 21436 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a1c14a6
+2025-05-11T15:21:56.086+07:00  INFO 21436 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-11T15:21:56.125+07:00  WARN 21436 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-11T15:21:56.125+07:00  WARN 21436 --- [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-05-11T15:21:56.140+07:00  INFO 21436 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-11T15:21:56.807+07:00  INFO 21436 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-11T15:21:56.810+07:00  INFO 21436 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-11T15:21:57.431+07:00  INFO 21436 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-11T15:21:57.997+07:00  WARN 21436 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-11T15:21:58.061+07:00  INFO 21436 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-05-11T15:21:58.138+07:00  INFO 21436 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2025-05-11T15:21:58.570+07:00  INFO 21436 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-05-11T15:21:59.145+07:00  INFO 21436 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-11T15:21:59.232+07:00  INFO 21436 --- [main] e.r.RecipeSharingWebsiteApplicationTests : Started RecipeSharingWebsiteApplicationTests in 5.554 seconds (process running for 7.487)
+2025-05-11T15:21:59.411+07:00  INFO 21436 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.example.recipes.RecipeSharingWebsiteApplication for test class org.example.recipes.RecipeControllerTest
+2025-05-11T15:21:59.423+07:00  INFO 21436 --- [main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+2025-05-11T15:21:59.445+07:00  INFO 21436 --- [main] o.example.recipes.RecipeControllerTest   : Starting RecipeControllerTest using Java 23.0.1 with PID 21436 (started by admin in C:\Users\admin\OneDrive - vnu.edu.vn\University\Semester IV\CNPM - INT2208 6\RecipeSharingWebsite)
+2025-05-11T15:21:59.447+07:00  INFO 21436 --- [main] o.example.recipes.RecipeControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2025-05-11T15:21:59.704+07:00  INFO 21436 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2025-05-11T15:21:59.761+07:00  INFO 21436 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-05-11T15:21:59.793+07:00  INFO 21436 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-05-11T15:21:59.793+07:00  INFO 21436 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-05-11T15:21:59.794+07:00  INFO 21436 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2025-05-11T15:21:59.857+07:00  INFO 21436 --- [main] o.example.recipes.RecipeControllerTest   : Started RecipeControllerTest in 0.434 seconds (process running for 8.112)
+2025-05-11T15:22:00.359+07:00  INFO 21436 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.example.recipes.DatabaseConnectionTest]: DatabaseConnectionTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-05-11T15:22:00.361+07:00  INFO 21436 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.example.recipes.RecipeSharingWebsiteApplication for test class org.example.recipes.DatabaseConnectionTest
+2025-05-11T15:22:00.384+07:00  INFO 21436 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.example.recipes.RecipeSharingWebsiteApplication for test class org.example.recipes.LoginControllerTest
+2025-05-11T15:22:00.388+07:00  INFO 21436 --- [main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+2025-05-11T15:22:00.414+07:00  INFO 21436 --- [main] o.example.recipes.LoginControllerTest    : Starting LoginControllerTest using Java 23.0.1 with PID 21436 (started by admin in C:\Users\admin\OneDrive - vnu.edu.vn\University\Semester IV\CNPM - INT2208 6\RecipeSharingWebsite)
+2025-05-11T15:22:00.414+07:00  INFO 21436 --- [main] o.example.recipes.LoginControllerTest    : No active profile set, falling back to 1 default profile: "default"
+2025-05-11T15:22:00.582+07:00  INFO 21436 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2025-05-11T15:22:00.615+07:00  INFO 21436 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-05-11T15:22:00.624+07:00  INFO 21436 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-05-11T15:22:00.625+07:00  INFO 21436 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-05-11T15:22:00.625+07:00  INFO 21436 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-05-11T15:22:00.630+07:00  INFO 21436 --- [main] o.example.recipes.LoginControllerTest    : Started LoginControllerTest in 0.243 seconds (process running for 8.885)
+2025-05-11T15:22:00.966+07:00  INFO 21436 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-11T15:22:00.967+07:00  INFO 21436 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-11T15:22:00.973+07:00  INFO 21436 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -21,7 +21,7 @@ public class Rate {
     @Column(name="rating", nullable=false)
     private int rating;
 
-    @Column(name="create_at")
+    @Column(name="created_at")
     private LocalDateTime createdAt;
 
     public Rate() {}

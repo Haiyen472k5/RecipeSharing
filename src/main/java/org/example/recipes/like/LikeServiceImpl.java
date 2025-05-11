@@ -32,6 +32,7 @@ public class LikeServiceImpl implements LikeService {
             e.setLikeId(idGenerator.generateId());
             e.setUserId(userId);
             e.setRecipeId(recipeId);
+            e.setCreatedAt(java.time.LocalDateTime.now());
             repo.save(e);
         }
     }

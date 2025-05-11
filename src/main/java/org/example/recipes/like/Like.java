@@ -17,7 +17,7 @@ public class Like {
     @Column(name = "user_id", length = 10)
     private String userId;
 
-    @Column(name="create_at")
+    @Column(name="created_at")
     private LocalDateTime createdAt;
 
     public Like() {}
