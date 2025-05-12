@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Cá Nhân</title>
+    <style>
+        body { font-family: sans-serif; max-width: 700px; margin: 40px auto; }
+        .avatar { width: 150px; border-radius: 50%; }
+        .info { margin-top: 20px; }
+        .stats { font-weight: bold; margin-top: 10px; }
+        .hidden-comment {
+            display: none;
+        }
+    </style>
+
+
+</head>
+<body>
+
+<img th:src="${user.avatarUrl}" class="avatar" alt="avatar">
+<div class="info">
+    <h2 th:text="${user.fullName}">Họ tên</h2>
+    <p><strong>Username:</strong> <span th:text="${user.username}">username</span></p>
+    <p><strong>Ngày sinh:</strong> <span th:text="${user.birthDate}">date</span></p>
+    <p class="stats">
+        Follower: <span th:text="${user.followersCount}">0</span> |
+        Following: <span th:text="${user.followingCount}">0</span> |
+        Bài viết: <span th:text="${user.totalPosts}">0</span> |
+        ★ <span th:text="${user.averageRating}">0.0</span>
+    </p>
+</div>
+
+<br>
+<a href="/edit-profile"><button>Chỉnh sửa hồ sơ</button></a>
+<br>
+
+<h3>Bài viết đã đăng</h3>
+<div th:if="${#lists.isEmpty(posts)}">Chưa có bài viết nào.</div>
+
+<div th:each="post : ${posts}" style="border: 1px solid #ccc; padding: 15px; margin: 20px 0; border-radius: 8px; background: #fdfdfd;">
+    <div style="display: flex; gap: 15px;">
+
+        <!-- ẢNH -->
+        <img th:src="${post.imageUrl}" alt="Ảnh món ăn"
+             style="width: 140px; height: 100px; object-fit: cover; border-radius: 6px; flex-shrink: 0;">
+
+        <!-- THÔNG TIN CHÍNH -->
+        <div style="flex-grow: 1;">
+            <h3 th:text="${post.title}" style="margin: 0;">Tên món</h3>
+            <p style="margin: 4px 0;">★ <span th:text="${post.averageRating}">0.0</span> | ❤ <span th:text="${post.likeCount}">0</span> lượt thích</p>
+
+            <!-- BÌNH LUẬN -->
+            <div th:if="${!#lists.isEmpty(post.comments)}" style="margin-top: 10px;">
+                <h5>Bình luận:</h5>
+                <ul>
+                    <li th:each="comment, iter : ${post.comments}" th:classappend="${iter.index >= 1} ? 'hidden-comment'">
+                        <strong th:text="${comment.commenterUsername}">user</strong>:
+                        <span th:text="${comment.content}">nội dung</span>
+                    </li>
+                </ul>
+                <!-- NÚT XEM THÊM / RÚT GỌN -->
+                <button type="button" class="toggle-btn" onclick="toggleComments(this)">Xem thêm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleComments(button) {
+        const container = button.closest("div"); // lấy thẻ cha chứa danh sách comment
+        const hidden = container.querySelectorAll(".hidden-comment");
+
+        if (button.innerText === "Xem thêm") {
+            hidden.forEach(el => el.style.display = "list-item");
+            button.innerText = "Rút gọn";
+        } else {
+            hidden.forEach(el => el.style.display = "none");
+            button.innerText = "Xem thêm";
+        }
+    }
+</script>
+</body>
+</html>

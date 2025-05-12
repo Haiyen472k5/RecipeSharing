@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chỉnh sửa hồ sơ</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fdfdfd;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0 20px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Chỉnh sửa hồ sơ</h2>
+<form id="editForm">
+    <label for="username">Username mới:</label>
+    <input type="text" id="username" name="username" placeholder="Nhập username..." required>
+
+    <label for="fullName">Họ và tên:</label>
+    <input type="text" id="fullName" name="fullName"  placeholder="Nhập họ và tên..." required>
+
+    <label for="avatarUrl">Chọn ảnh đại diện:</label>
+    <select id="avatarUrl" name="avatarUrl">
+        <option value="" disabled selected>-- Chọn ảnh --</option>
+        <option value="/images/banhmi.jpg" th:selected="${user.avatarUrl == '/images/banhmi.jpg'}">Banh mi</option>
+        <option value="/images/flan.jpg" th:selected="${user.avatarUrl == '/images/flan.jpg'}">Flan</option>
+        <option value="/images/pho.jpg" th:selected="${user.avatarUrl == '/images/pho.jpg'}">Pho</option>
+    </select>
+
+    <button type="submit" id="submitBtn">Lưu thay đổi</button>
+</form>
+<br>
+<a href="/profile"><button>Hồ sơ</button></a>
+<br>
+
+<div id="result" class="result"></div>
+
+<script th:inline="javascript">
+    const currentUsername = /*[[${user.username}]]*/ "";
+
+    document.getElementById("editForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const username = document.getElementById("username").value.trim();
+        const fullName = document.getElementById("fullName").value.trim();
+        const avatarUrl = document.getElementById("avatarUrl").value;
+        const result = document.getElementById("result");
+        const submitBtn = document.getElementById("submitBtn");
+
+        if (!username || !fullName || !avatarUrl) {
+            result.innerText = "⚠️ Vui lòng điền đầy đủ thông tin";
+            result.style.color = "red";
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Đang cập nhật...";
+
+        const body = { username, fullName, avatarUrl };
+
+        fetch(`/api/users/${currentUsername}/edit`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body)
+        })
+            .then(async response => {
+                const text = await response.text();
+
+                if (response.ok) {
+                    result.innerText = "✅ " + text;
+                    result.style.color = "green";
+                    document.getElementById("editForm").reset();
+                    setTimeout(() => window.location.href = "/profile", 2500);
+                } else {
+                    result.innerText = "❌ " + text;
+                    result.style.color = "red";
+                }
+            })
+            .catch(err => {
+                result.innerText = "❌ Lỗi hệ thống: " + err.message;
+                result.style.color = "red";
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Lưu thay đổi";
+            });
+    });
+</script>
+
+</body>
+</html>
