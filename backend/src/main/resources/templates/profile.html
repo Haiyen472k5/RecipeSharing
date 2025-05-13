@@ -8,9 +8,24 @@
         .avatar { width: 150px; border-radius: 50%; }
         .info { margin-top: 20px; }
         .stats { font-weight: bold; margin-top: 10px; }
-        .hidden-comment {
-            display: none;
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
         }
+
+        .grid-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .grid-item img:hover {
+            transform: scale(1.03);
+        }
+
     </style>
 
 
@@ -34,49 +49,56 @@
 <a href="/edit-profile"><button>Chỉnh sửa hồ sơ</button></a>
 <br>
 
-<h3>Bài viết đã đăng</h3>
-<div th:if="${#lists.isEmpty(posts)}">Chưa có bài viết nào.</div>
+<div style="margin-bottom: 20px;">
+    <button onclick="showTab('posted')">Bài viết đã đăng</button>
+    <button onclick="showTab('liked')">Bài viết đã thích</button>
+    <button onclick="showTab('saved')">Bài viết đã lưu</button>
+</div>
 
-<div th:each="post : ${posts}" style="border: 1px solid #ccc; padding: 15px; margin: 20px 0; border-radius: 8px; background: #fdfdfd;">
-    <div style="display: flex; gap: 15px;">
 
-        <!-- ẢNH -->
-        <img th:src="${post.imageUrl}" alt="Ảnh món ăn"
-             style="width: 140px; height: 100px; object-fit: cover; border-radius: 6px; flex-shrink: 0;">
+<!-- Bài viết đã đăng -->
+<div id="postedTab">
+    <h3>Bài viết đã đăng</h3>
+    <div th:if="${#lists.isEmpty(posts)}">Chưa có bài viết nào.</div>
 
-        <!-- THÔNG TIN CHÍNH -->
-        <div style="flex-grow: 1;">
-            <h3 th:text="${post.title}" style="margin: 0;">Tên món</h3>
-            <p style="margin: 4px 0;">★ <span th:text="${post.averageRating}">0.0</span> | ❤ <span th:text="${post.likeCount}">0</span> lượt thích</p>
-
-            <!-- BÌNH LUẬN -->
-            <div th:if="${!#lists.isEmpty(post.comments)}" style="margin-top: 10px;">
-                <h5>Bình luận:</h5>
-                <ul>
-                    <li th:each="comment, iter : ${post.comments}" th:classappend="${iter.index >= 1} ? 'hidden-comment'">
-                        <strong th:text="${comment.commenterUsername}">user</strong>:
-                        <span th:text="${comment.content}">nội dung</span>
-                    </li>
-                </ul>
-                <!-- NÚT XEM THÊM / RÚT GỌN -->
-                <button type="button" class="toggle-btn" onclick="toggleComments(this)">Xem thêm</button>
-            </div>
-        </div>
+    <div class="grid-container">
+        <a th:each="post : ${posts}" th:href="@{'/recipes/' + ${post.id}}" class="grid-item">
+            <img th:src="${post.imageUrl}" th:alt="${post.title}">
+        </a>
     </div>
 </div>
 
-<script>
-    function toggleComments(button) {
-        const container = button.closest("div"); // lấy thẻ cha chứa danh sách comment
-        const hidden = container.querySelectorAll(".hidden-comment");
+<!-- Bài viết đã thích -->
+<div id="likedTab" style="display: none;">
+    <h3>Bài viết đã đăng</h3>
+    <div th:if="${#lists.isEmpty(likes)}">Chưa có bài viết nào.</div>
 
-        if (button.innerText === "Xem thêm") {
-            hidden.forEach(el => el.style.display = "list-item");
-            button.innerText = "Rút gọn";
-        } else {
-            hidden.forEach(el => el.style.display = "none");
-            button.innerText = "Xem thêm";
-        }
+    <div class="grid-container">
+        <a th:each="post : ${likes}" th:href="@{'/recipes/' + ${post.id}}" class="grid-item">
+            <img th:src="${post.imageUrl}" th:alt="${post.title}">
+        </a>
+    </div>
+</div>
+
+<!-- Bài viết đã thích -->
+<div id="savedTab" style="display: none;">
+    <h3>Bài viết đã đăng</h3>
+    <div th:if="${#lists.isEmpty(saves)}">Chưa có bài viết nào.</div>
+
+    <div class="grid-container">
+        <a th:each="post : ${saves}" th:href="@{'/recipes/' + ${post.id}}" class="grid-item">
+            <img th:src="${post.imageUrl}" th:alt="${post.title}">
+        </a>
+    </div>
+</div>
+
+
+
+<script>
+    function showTab(tabName) {
+        document.getElementById("postedTab").style.display = (tabName === "posted") ? "block" : "none";
+        document.getElementById("likedTab").style.display = (tabName === "liked") ? "block" : "none";
+        document.getElementById("savedTab").style.display = (tabName === "saved") ? "block" : "none";
     }
 </script>
 </body>

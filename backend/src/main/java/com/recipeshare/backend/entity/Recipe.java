@@ -12,6 +12,8 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String category;
+
     private String title;
     private String imageUrl;
     private String description;
@@ -31,7 +33,7 @@ public class Recipe {
 
     public Recipe() {}
 
-    public Recipe(Long id, String title, String imageUrl, String description, User author, Set<Rating> ratings, Set<Like> likes, Set<Save> saves) {
+    public Recipe(Long id, String title, String imageUrl, String description, User author, Set<Rating> ratings, Set<Like> likes, Set<Save> saves, String category) {
         this.id = id;
         this.title = title;
         this.imageUrl = imageUrl;
@@ -40,6 +42,7 @@ public class Recipe {
         this.ratings = ratings;
         this.likes = likes;
         this.saves = saves;
+        this.category = category;
     }
 
     public Long getId() {
@@ -104,5 +107,13 @@ public class Recipe {
 
     public void setSaves(Set<Save> saves) {
         this.saves = saves;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

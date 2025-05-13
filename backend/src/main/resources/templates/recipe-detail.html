@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: sans-serif; max-width: 700px; margin: 40px auto; }
+        .avatar { width: 150px; border-radius: 50%; }
+        .info { margin-top: 20px; }
+        .stats { font-weight: bold; margin-top: 10px; }
+        .hidden-comment {
+            display: none;
+        }
+    </style>
+
+
+</head>
+
+
+<h2 th:text="${recipe.title}">Tên món</h2>
+<p>Người đăng: <span th:text="${recipe.author}">author</span></p>
+<img th:src="${recipe.imageUrl}" style="width: 300px;">
+<p>Thể loại: <span th:text="${recipe.category}">...</span></p>
+
+<p>★ <span th:text="${recipe.averageRating}">0</span> |
+    ❤️ <span th:text="${recipe.likeCount}">0</span> lượt thích</p>
+
+<!-- BÌNH LUẬN -->
+<div th:if="${!#lists.isEmpty(recipe.comments)}" style="margin-top: 10px;">
+    <h3>Bình luận:</h3>
+    <ul>
+        <li th:each="comment, iter : ${recipe.comments}" th:classappend="${iter.index >= 1} ? 'hidden-comment'">
+            <strong th:text="${comment.commenterUsername}">user</strong>:
+            <span th:text="${comment.content}">nội dung</span>
+        </li>
+    </ul>
+    <!-- NÚT XEM THÊM / RÚT GỌN -->
+    <button type="button" class="toggle-btn" onclick="toggleComments(this)">Xem thêm</button>
+</div>
+
+
+<script>
+    function toggleComments(button) {
+        const container = button.closest("div"); // lấy thẻ cha chứa danh sách comment
+        const hidden = container.querySelectorAll(".hidden-comment");
+
+        if (button.innerText === "Xem thêm") {
+            hidden.forEach(el => el.style.display = "list-item");
+            button.innerText = "Rút gọn";
+        } else {
+            hidden.forEach(el => el.style.display = "none");
+            button.innerText = "Xem thêm";
+        }
+    }
+
+</script>
+</html>
