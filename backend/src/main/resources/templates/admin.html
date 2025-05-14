@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Quản Trị</title>
+    <style>
+        body { font-family: sans-serif; max-width: 1000px; margin: 40px auto; }
+        h2 { margin-top: 40px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 8px 12px; border: 1px solid #ccc; }
+        th { background: #f0f0f0; }
+        button { padding: 6px 10px; margin: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+<h1>👩‍💼 Trang Quản Trị</h1>
+
+<!-- Người dùng -->
+<h2>Người dùng</h2>
+<table id="usersTable">
+    <thead>
+    <tr><th>ID</th><th>Username</th><th>Họ tên</th><th>Số bài</th><th>Xoá</th></tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<!-- Bài viết -->
+<h2>Bài viết</h2>
+<table id="recipesTable">
+    <thead>
+    <tr><th>ID</th><th>Tiêu đề</th><th>★</th><th>❤</th><th>Xoá</th></tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<!-- Thể loại -->
+<h2>Thể loại món ăn</h2>
+<div>
+    <input type="text" id="newCategory" placeholder="Tên thể loại mới">
+    <button onclick="addCategory()">Thêm</button>
+</div>
+<table id="categoryTable">
+    <thead>
+    <tr><th>ID</th><th>Tên thể loại</th><th>Xoá</th></tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+    // Load người dùng
+    fetch('/api/admin/users')
+        .then(res => res.json())
+        .then(data => {
+            const table = document.querySelector('#usersTable tbody');
+            data.forEach(u => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+            <td>${u.id}</td>
+          <td>${u.username}</td>
+          <td>${u.fullName}</td>
+          <td>${u.totalPosts}</td>
+          <td><button onclick="deleteUser(${u.id})">Xoá</button></td>
+        `;
+                table.appendChild(row);
+            });
+        });
+
+    function deleteUser(userId) {
+        fetch(`/api/admin/users/${userId}`, { method: 'DELETE' })
+            .then(() => location.reload());
+    }
+
+    // Load bài viết
+    fetch('/api/admin/recipes')
+        .then(res => res.json())
+        .then(data => {
+            const table = document.querySelector('#recipesTable tbody');
+            data.forEach(r => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+           <td>${r.id}</td>
+          <td>${r.title}</td>
+          <td>${r.averageRating.toFixed(1)}</td>
+          <td>${r.likeCount}</td>
+          <td><button onclick="deleteRecipe(${r.id})">Xoá</button></td>
+        `;
+                table.appendChild(row);
+            });
+        });
+
+    function deleteRecipe(id) {
+        fetch(`/api/admin/recipes/${id}`, { method: 'DELETE' })
+            .then(() => location.reload());
+    }
+
+    // Load thể loại
+    function loadCategories() {
+        fetch('/api/admin/categories')
+            .then(res => res.json())
+            .then(data => {
+                const table = document.querySelector('#categoryTable tbody');
+                table.innerHTML = "";
+                data.forEach(c => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+            <td>${c.id}</td>
+            <td>${c.name}</td>
+            <td><button onclick="deleteCategory(${c.id})">Xoá</button></td>
+          `;
+                    table.appendChild(row);
+                });
+            });
+    }
+    loadCategories();
+
+    function addCategory() {
+        const name = document.getElementById("newCategory").value.trim();
+        if (name.length === 0) return alert("Nhập tên thể loại");
+
+        console.log("📝 Thêm thể loại:", name);
+
+        fetch('/api/admin/categories', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name })
+        })
+            .then(async res => {
+                if (!res.ok) {
+                    const msg = await res.text(); // 👈 lấy message trả về từ backend
+                    alert("❌ Lỗi: " + msg);       // ✅ hiện alert
+                    return;
+                }
+                document.getElementById("newCategory").value = "";
+                loadCategories();
+            })
+            .catch(err => {
+                console.error("Lỗi khi thêm thể loại:", err);
+                alert("Đã xảy ra lỗi không xác định.");
+            });
+    }
+
+    function deleteCategory(id) {
+        fetch(`/api/admin/categories/${id}`, { method: 'DELETE' })
+            .then(() => loadCategories());
+    }
+</script>
+
+</body>
+</html>

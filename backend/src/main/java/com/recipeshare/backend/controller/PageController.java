@@ -65,5 +65,10 @@ public class PageController {
         return "recipe-detail"; // templates/recipe-detail.html
     }
 
+    @GetMapping("/admin")
+    public String showAdminPage() {
+        return "admin";
+    }
+
 
 }

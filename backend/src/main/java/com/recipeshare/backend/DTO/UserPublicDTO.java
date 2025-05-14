@@ -3,6 +3,7 @@ package com.recipeshare.backend.DTO;
 import java.time.LocalDate;
 
 public class UserPublicDTO {
+    private Long id;
     private String username;
     private String fullName;
     private String avatarUrl;
@@ -14,6 +15,18 @@ public class UserPublicDTO {
 
     public UserPublicDTO() {}
 
+    public UserPublicDTO(Long id, String username, String fullName, String avatarUrl, LocalDate birthDate, int followersCount, int followingCount, int totalPosts, double averageRating) {
+        this.id = id;
+        this.username = username;
+        this.fullName = fullName;
+        this.avatarUrl = avatarUrl;
+        this.birthDate = birthDate;
+        this.followersCount = followersCount;
+        this.followingCount = followingCount;
+        this.totalPosts = totalPosts;
+        this.averageRating = averageRating;
+    }
+
     public UserPublicDTO(String username, String fullName, String avatarUrl, LocalDate birthDate, int followersCount, int followingCount, int totalPosts, double averageRating) {
         this.username = username;
         this.fullName = fullName;
@@ -23,6 +36,14 @@ public class UserPublicDTO {
         this.followingCount = followingCount;
         this.totalPosts = totalPosts;
         this.averageRating = averageRating;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {

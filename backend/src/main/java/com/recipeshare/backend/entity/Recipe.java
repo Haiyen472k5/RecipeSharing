@@ -4,15 +4,12 @@ import jakarta.persistence.*;
 
 import java.util.*;
 
-
 @Entity
 @Table(name = "recipes")
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String category;
 
     private String title;
     private String imageUrl;
@@ -31,9 +28,12 @@ public class Recipe {
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private Set<Save> saves;
 
+    @ManyToOne
+    private Category category;
+
     public Recipe() {}
 
-    public Recipe(Long id, String title, String imageUrl, String description, User author, Set<Rating> ratings, Set<Like> likes, Set<Save> saves, String category) {
+    public Recipe(Long id, String title, String imageUrl, String description, User author, Set<Rating> ratings, Set<Like> likes, Set<Save> saves, Category category) {
         this.id = id;
         this.title = title;
         this.imageUrl = imageUrl;
@@ -42,6 +42,14 @@ public class Recipe {
         this.ratings = ratings;
         this.likes = likes;
         this.saves = saves;
+        this.category = category;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
         this.category = category;
     }
 
@@ -109,11 +117,6 @@ public class Recipe {
         this.saves = saves;
     }
 
-    public String getCategory() {
-        return category;
-    }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+
 }

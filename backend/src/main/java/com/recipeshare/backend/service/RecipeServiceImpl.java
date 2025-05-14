@@ -38,7 +38,7 @@ public class RecipeServiceImpl implements RecipeService {
                 recipe.getId(),
                 recipe.getTitle(),
                 recipe.getImageUrl(),
-                recipe.getCategory(),
+                recipe.getCategory().getName(),
                 recipe.getAuthor().getUsername(),
                 recipe.getDescription(),
                 avgRating,
@@ -46,4 +46,6 @@ public class RecipeServiceImpl implements RecipeService {
                 comments
         );
     }
+
+
 }

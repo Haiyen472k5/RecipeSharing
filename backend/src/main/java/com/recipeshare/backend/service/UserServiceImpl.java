@@ -58,6 +58,8 @@ public class UserServiceImpl implements UserService {
         );
     }
 
+
+
     @Override
     public List<UserSimpleDTO> getFollowers(String username) {
         User user = userRepository.findByUsername(username)

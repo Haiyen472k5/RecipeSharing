@@ -3,6 +3,7 @@ package com.recipeshare.backend.DTO;
 import java.time.LocalDate;
 
 public class UserProfileUpdatedDTO {
+    private Long id;
     private String avatarUrl;
     private String fullName;
     private String username;
@@ -15,6 +16,14 @@ public class UserProfileUpdatedDTO {
         this.fullName = fullName;
         this.username = username;
         this.birthDate = birthDate;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getAvatarUrl() {

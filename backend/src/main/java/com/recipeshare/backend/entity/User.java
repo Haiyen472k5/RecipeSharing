@@ -23,6 +23,9 @@ public class User {
     private String avatarUrl;
     private LocalDate dateOfBirth;
 
+    @Column(name = "is_admin", nullable = false)
+    private boolean isAdmin;
+
     @ManyToMany
     @JoinTable(
             name = "follows",
@@ -38,7 +41,7 @@ public class User {
     private List<Recipe> recipes = new ArrayList<>();
 
     public User() {}
-    public User(Long id, String username, String fullName, String avatarUrl, LocalDate dateOfBirth, Set<User> following, Set<User> followers, List<Recipe> recipes) {
+    public User(Long id, String username, String fullName, String avatarUrl, LocalDate dateOfBirth, Set<User> following, Set<User> followers, List<Recipe> recipes, boolean isAdmin) {
         this.id = id;
         this.username = username;
         this.fullName = fullName;
@@ -47,6 +50,7 @@ public class User {
         this.following = following;
         this.followers = followers;
         this.recipes = recipes;
+        this.isAdmin = isAdmin;
     }
 
     public Long getId() {
@@ -111,6 +115,14 @@ public class User {
 
     public void setRecipes(List<Recipe> recipes) {
         this.recipes = recipes;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }
 
