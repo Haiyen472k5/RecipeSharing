@@ -1,13 +1,22 @@
 package com.recipeshare.backend.DTO;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.time.LocalDate;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserSimpleDTO {
     private String username;
     private String avatarUrl;
     private LocalDate birthDate;
 
     public UserSimpleDTO() {}
+
+    public UserSimpleDTO(String username, String avatarUrl) {
+        this.username = username;
+        this.avatarUrl = avatarUrl;
+    }
+
 
     public UserSimpleDTO(String username, String avatarUrl, LocalDate birthDate) {
         this.username = username;
@@ -16,10 +25,6 @@ public class UserSimpleDTO {
 
     }
 
-    public UserSimpleDTO(String username, String avatarUrl) {
-        this.username = username;
-        this.avatarUrl = avatarUrl;
-    }
 
     public String getUsername() {
         return username;

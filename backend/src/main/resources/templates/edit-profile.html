@@ -60,7 +60,7 @@
 
 <script th:inline="javascript">
     const currentUsername = /*[[${user.username}]]*/ "";
-
+    console.log(currentUsername);
     document.getElementById("editForm").addEventListener("submit", function (e) {
         e.preventDefault();
 

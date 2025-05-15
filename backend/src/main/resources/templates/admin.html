@@ -102,10 +102,19 @@
                 table.innerHTML = "";
                 data.forEach(c => {
                     const row = document.createElement('tr');
+                    row.dataset.id = c.id;
+
                     row.innerHTML = `
             <td>${c.id}</td>
-            <td>${c.name}</td>
-            <td><button onclick="deleteCategory(${c.id})">Xoá</button></td>
+            <td>
+                 <span class="text">${sanitizeName(c.name)}</span>
+                <input class="input" type="text" value="${c.name}" style="display:none; width: 100%;">
+            </td>
+
+            <td>
+                <button onclick="deleteCategory(${c.id})">Xoá</button>
+                <button onclick="updateCategory(this)">Sửa</button>
+            </td>
           `;
                     table.appendChild(row);
                 });
@@ -143,6 +152,58 @@
         fetch(`/api/admin/categories/${id}`, { method: 'DELETE' })
             .then(() => loadCategories());
     }
+
+    function updateCategory(button) {
+        const row = button.closest('tr');
+        const textElement = row.querySelector('.text');
+        const inputElement = row.querySelector('.input');
+        const categoryId = row.dataset.id;
+
+        // Hiện input, ẩn text
+        textElement.style.display = 'none';
+        inputElement.style.display = 'inline-block';
+        inputElement.focus();
+
+        inputElement.addEventListener('keydown', function handler(e) {
+            if (e.key === 'Enter') {
+                const newName = inputElement.value.trim();
+                if (!newName) return alert("Không được để trống");
+
+                // Gửi API cập nhật
+                fetch(`/api/admin/categories/${categoryId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: newName })
+                })
+                    .then(async res => {
+                        if (!res.ok) {
+                            const msg = await res.text();
+                            alert("Lỗi: " + msg);
+                            return;
+                        }
+
+                        // Cập nhật giao diện
+                        textElement.textContent = newName;
+                        textElement.style.display = 'inline-block';
+                        inputElement.style.display = 'none';
+                    });
+
+                // Gỡ bỏ event listener sau khi xử lý xong
+                inputElement.removeEventListener('keydown', handler);
+            }
+        });
+    }
+
+    function sanitizeName(str) {
+        return str.replace(/[<>"'&]/g, ""); // loại bỏ ký tự gây lỗi HTML
+    }
+
+
+
+
+
+
+
 </script>
 
 </body>

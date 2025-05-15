@@ -42,6 +42,29 @@ public class PageController {
         return "profile"; // templates/profile.html
     }
 
+    @GetMapping("/user/{username}")
+    public String viewOtherProfile(HttpSession session, @PathVariable String username, Model model) {
+        String currentUsername = getCurrentUsername(session);
+        // Lấy thông tin người dùng được xem
+        UserPublicDTO user = userService.getPublicProfile(username);
+
+        // Lấy danh sách bài viết đã đăng
+        List<RecipeSimpleDTO> posts = userService.getPostedRecipes(username);
+
+        // Kiểm tra người xem có phải chính chủ không
+        boolean isOwner = username.equals(currentUsername);
+        if (isOwner) {
+            return "redirect:/profile";
+        }
+        // Truyền sang view
+        model.addAttribute("user", user);
+        model.addAttribute("posts", posts);
+
+
+        return "other-profile"; // Tương ứng templates/user-profile.html
+
+    }
+
 
 
     @GetMapping("/edit-profile")

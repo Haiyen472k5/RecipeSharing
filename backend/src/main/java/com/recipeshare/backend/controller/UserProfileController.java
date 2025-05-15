@@ -28,13 +28,6 @@ public class UserProfileController {
         this.userService = userService;
     }
 
-
-
-    @GetMapping("/{username}/profile")
-    public String showUserProfilePage() {
-        return "profile.html"; // map đúng với profile.html trong /templates
-    }
-
     @GetMapping("/{username}/public")
     public ResponseEntity<UserPublicDTO> getPublicProfile(@PathVariable String username) {
         UserPublicDTO dto = userService.getPublicProfile(username);
@@ -47,7 +40,7 @@ public class UserProfileController {
         return ResponseEntity.ok(following);
     }
 
-    @GetMapping("/{username}/followers")
+    @GetMapping("/{username}/follower")
     public ResponseEntity<List<UserSimpleDTO>> getFollowers(@PathVariable String username) {
         List<UserSimpleDTO> followers = userService.getFollowers(username);
         return ResponseEntity.ok(followers);
@@ -84,6 +77,8 @@ public class UserProfileController {
 
         return ResponseEntity.ok("Cập nhật thành công");
     }
+
+
 
 
 }

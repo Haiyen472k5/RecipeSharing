@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Cá Nhân</title>
+    <style>
+        body { font-family: sans-serif; max-width: 700px; margin: 40px auto; }
+        .avatar { width: 150px; border-radius: 50%; }
+        .info { margin-top: 20px; }
+        .stats { font-weight: bold; margin-top: 10px; }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .grid-item img:hover {
+            transform: scale(1.03);
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+<div id="profile">
+    <img class="avatar" th:src="${user.avatarUrl}" alt="Avatar">
+    <div class="info">
+        <h2 th:text="${user.fullName}">Họ tên</h2>
+        <p><strong>Username:</strong> <span th:text="${user.username}">username</span></p>
+        <p><strong>Ngày sinh:</strong> <span th:text="${user.birthDate}">1999-01-01</span></p>
+        <p class="stats">
+            Follower: <span th:text="${user.followersCount}">0</span> |
+            Following: <span th:text="${user.followingCount}">0</span> |
+            Bài viết: <span th:text="${user.totalPosts}">0</span> |
+            ★ <span th:text="${user.averageRating}">0.0</span>
+        </p>
+
+        <!-- Nút Follow nếu không phải chính chủ -->
+        <button class="follow-btn">Theo dõi</button>
+
+    </div>
+</div>
+
+<!-- Bài viết đã đăng -->
+<div id="postedTab">
+    <h3>Bài viết đã đăng</h3>
+    <div th:if="${#lists.isEmpty(posts)}">Chưa có bài viết nào.</div>
+
+    <div class="grid-container">
+        <a th:each="post : ${posts}" th:href="@{'/recipes/' + ${post.id}}" class="grid-item">
+            <img th:src="${post.imageUrl}" th:alt="${post.title}">
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
