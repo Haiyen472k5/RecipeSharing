@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="vi">
 <head>
+    <title>Recipe Detail</title>
     <meta charset="UTF-8">
     <style>
         body { font-family: sans-serif; max-width: 700px; margin: 40px auto; }
@@ -17,18 +18,27 @@
 
 
 <h2 th:text="${recipe.title}">Tên món</h2>
-<p>Người đăng: <span th:text="${recipe.author}">author</span></p>
+<div id="profileBtn">
+    <a href="/profile"><button>Hồ sơ</button></a>
+</div>
+
+<p><strong>Người đăng: </strong> <img th:src="${recipe.authorUrl}" width="40" style="border-radius:50%; vertical-align:middle; margin-right:6px;"> <span th:text="${recipe.author}">author</span></p>
+<p><strong>Description:</strong> <span th:text="${recipe.description}">description</span></p>
 <img th:src="${recipe.imageUrl}" style="width: 300px;">
 <p>Thể loại: <span th:text="${recipe.category}">...</span></p>
 
 <p>★ <span th:text="${recipe.averageRating}">0</span> |
-    ❤️ <span th:text="${recipe.likeCount}">0</span> lượt thích</p>
+    <span id="likeCount">❤️️<span th:text="${recipe.likeCount}">0</span> lượt thích </span>
+    <button id="likeBtn" onclick="toggleLike()">Thích</button>
+</p>
+
+
 
 <!-- BÌNH LUẬN -->
 <div th:if="${!#lists.isEmpty(recipe.comments)}" style="margin-top: 10px;">
-    <h3>Bình luận:</h3>
+    <h3>Bình luận: <span th:text="${recipe.commentCount}">commentCount</span></h3>
     <ul>
-        <li th:each="comment, iter : ${recipe.comments}" th:classappend="${iter.index >= 1} ? 'hidden-comment'">
+        <li th:each="comment, iter : ${recipe.comments}" th:classappend="${iter.index > 2} ? 'hidden-comment'">
             <strong th:text="${comment.commenterUsername}">user</strong>:
             <span th:text="${comment.content}">nội dung</span>
         </li>
@@ -38,7 +48,7 @@
 </div>
 
 
-<script>
+<script th:inline="javascript">
     function toggleComments(button) {
         const container = button.closest("div"); // lấy thẻ cha chứa danh sách comment
         const hidden = container.querySelectorAll(".hidden-comment");
@@ -51,6 +61,47 @@
             button.innerText = "Xem thêm";
         }
     }
+
+    //xu li like
+    const recipeId = /*[[${recipe.id}]]*/ 1;
+    const currentUsername = /*[[${currentUsername}]]*/ "";
+    console.log(currentUsername);
+    function loadLikeStatus() {
+        fetch(`/api/recipes/${recipeId}/liked?username=${currentUsername}`)
+            .then(res => res.json())
+            .then(liked => {
+                document.getElementById("likeBtn").innerText = liked ? "💔 Bỏ thích" : "❤️ Thích";
+            });
+    }
+
+
+    function toggleLike() {
+        fetch(`/api/recipes/${recipeId}/like?username=${currentUsername}`, {
+            method: 'POST'
+        })
+            .then(res => res.json())
+            .then(liked => {
+                document.getElementById("likeBtn").innerText = liked ? "💔 Bỏ thích" : "❤️ Thích";
+                updateLikeCount();
+            });
+        console.log(currentUsername);
+    }
+
+    const id = /*[[${recipe.likeCount}]]*/ 1;
+
+    function updateLikeCount() {
+        fetch(`/api/recipes/${recipeId}`)
+            .then(res => res.json())
+            .then(recipe => {
+                console.log("Like count từ backend:", recipe.likeCount);
+                document.getElementById("likeCount").innerText = `❤️ ${recipe.likeCount} lượt thích`;
+            });
+    }
+
+    loadLikeStatus();
+    updateLikeCount();
+
+
 
 </script>
 </html>
