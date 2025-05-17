@@ -34,3 +34,11 @@ build/
 
 # Ignore all application.properties (e.g. credentials, environment overrides)
 **/application.properties
+
+# ignore all HTML, CSS and JPG files
+**/*.html
+**/*.css
+**/*.jpg
+**/*.jpeg
+**/*.png
+**/*.gif
