@@ -12,6 +12,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.example.recipes.category.CategoryService;
 import org.example.recipes.exception.GlobalExceptionHandler;
@@ -96,7 +97,7 @@ public class RecipeControllerTest {
         sample.setInstruction("Beat eggs");
         sample.setIngredients("Eggs, Salt");
 
-        when(recipeService.findById("r1")).thenReturn(sample);
+        when(recipeService.findById("r1")).thenReturn(Optional.of(sample));
 
         mockMvc.perform(get("/recipes/r1/edit"))
                 .andExpect(status().isOk())

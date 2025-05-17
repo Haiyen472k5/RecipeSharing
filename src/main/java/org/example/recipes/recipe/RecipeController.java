@@ -1,13 +1,18 @@
 package org.example.recipes.recipe;
 
+import org.example.recipes.category.CategoryService;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.example.recipes.category.CategoryService;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/recipes")
 public class RecipeController {
+
     private final RecipeService recipeService;
     private final CategoryService categoryService;
 
@@ -17,54 +22,50 @@ public class RecipeController {
         this.categoryService = categoryService;
     }
 
-    // Form tạo bài
+    // Hiển thị form tạo mới
     @GetMapping("/new")
     public String showCreateForm(Model model) {
         model.addAttribute("recipeForm", new Recipes());
         return "recipes/new";
     }
 
-    // Xử lý submit
+    // Xử lý submit form tạo
     @PostMapping("/new")
-    public String create(@ModelAttribute Recipes recipeForm) {
+    public String createRecipe(@ModelAttribute("recipeForm") Recipes recipeForm) {
         recipeService.create(recipeForm);
         return "redirect:/";
     }
 
-    // Gợi ý category (AJAX)
-    @GetMapping("/categories/suggest")
-    @ResponseBody
-    public java.util.List<String> suggestCategories(@RequestParam("q") String q) {
-        return categoryService.suggest(q);
-    }
-
-    // Edit
+    // Hiển thị form sửa
     @GetMapping("/{id}/edit")
-    public String showEdit(@PathVariable String id, Model model) {
-        Recipes r = recipeService.findById(id);
-        Recipes form = new Recipes();
-        // map fields
-        form.setName(r.getName());
-        form.setInstruction(r.getInstruction());
-        form.setDescription(r.getDescription());
-        form.setIngredients(r.getIngredients());
-        form.setCategory(r.getCategory());
-        form.setAuthorId(r.getAuthorId());
-        model.addAttribute("recipeForm", form);
+    public String showEditForm(@PathVariable("id") String id, Model model) {
+        Recipes recipe = recipeService.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Recipe not found: " + id));
+        model.addAttribute("recipeForm", recipe);
         model.addAttribute("id", id);
         return "recipes/edit";
     }
 
+    // Xử lý submit form sửa
     @PostMapping("/{id}/edit")
-    public String update(@PathVariable String id, @ModelAttribute Recipes form) {
-        recipeService.update(id, form);
+    public String updateRecipe(@PathVariable("id") String id,
+                               @ModelAttribute("recipeForm") Recipes recipeForm) {
+        recipeService.update(id, recipeForm);
         return "redirect:/recipes/" + id;
     }
 
-    // Delete
+    // Xoá recipe
     @PostMapping("/{id}/delete")
-    public String delete(@PathVariable String id) {
+    public String deleteRecipe(@PathVariable("id") String id) {
         recipeService.delete(id);
         return "redirect:/";
+    }
+
+    // Gợi ý category trả về JSON
+    @GetMapping("/categories/suggest")
+    @ResponseBody
+    public List<String> suggestCategories(@RequestParam("q") String q) {
+        return categoryService.suggest(q);
     }
 }

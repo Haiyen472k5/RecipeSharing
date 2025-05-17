@@ -1,17 +1,28 @@
 package org.example.recipes.like;
 
 import org.example.recipes.login.IdGeneratorService;
+import org.example.recipes.recipe.RecipeService;
+import org.example.recipes.recipe.Recipes;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class LikeServiceImpl implements LikeService {
     private final LikeRepository repo;
-    private final IdGeneratorService idGenerator;
+    private final RecipeService recipeService;
+    private final IdGeneratorService idGen;
 
-    public LikeServiceImpl(LikeRepository repo, IdGeneratorService idGenerator) {
+    public LikeServiceImpl(
+            LikeRepository repo,
+            RecipeService recipeService,
+            IdGeneratorService idGen
+    ) {
         this.repo = repo;
-        this.idGenerator = idGenerator;
+        this.recipeService = recipeService;
+        this.idGen = idGen;
     }
 
     @Override
@@ -29,7 +40,7 @@ public class LikeServiceImpl implements LikeService {
     public void like(String userId, String recipeId) {
         if (!hasLiked(userId, recipeId)) {
             Like e = new Like();
-            e.setLikeId(idGenerator.generateId());
+            e.setLikeId(idGen.generateId());
             e.setUserId(userId);
             e.setRecipeId(recipeId);
             e.setCreatedAt(java.time.LocalDateTime.now());
@@ -43,5 +54,14 @@ public class LikeServiceImpl implements LikeService {
         if (repo.findByUserIdAndRecipeId(userId, recipeId) != null) {
             repo.deleteByUserIdAndRecipeId(userId, recipeId);
         }
+    }
+
+    @Override
+    public List<Recipes> getLikedRecipes(String userId) {
+        return repo.findByUserId(userId).stream()
+                .map(like -> recipeService.findById(like.getRecipeId())
+                        .orElseThrow(() -> new IllegalArgumentException(
+                                "Recipe không tồn tại: " + like.getRecipeId())))
+                .collect(Collectors.toList());
     }
 }

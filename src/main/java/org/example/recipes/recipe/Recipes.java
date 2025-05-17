@@ -38,7 +38,7 @@ public class Recipes {
     private String authorId;
 
     @CreationTimestamp
-    @Column(name = "create_at", nullable = false, updatable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "comment_count")
@@ -56,10 +56,23 @@ public class Recipes {
     @Column(name = "save_count")
     private Integer saveCount = 0;
 
+    @Column(name="avatar_url", length=255)
+    private String avatarUrl;
+
     // Default constructor
     public Recipes() {}
 
     // Getters and setters
+
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
     public String getRecipeId() {
         return recipeId;
     }

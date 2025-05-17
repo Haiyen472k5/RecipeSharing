@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RecipeServiceImpl implements RecipeService {
@@ -73,8 +74,9 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public Recipes findById(String id) {
-        return repo.findById(id).orElseThrow();
+    @Transactional(readOnly = true)
+    public List<Recipes> findAll() {
+        return repo.findAll();
     }
 
     @Override
@@ -91,5 +93,16 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     public List<Recipes> findByCategory(String category) {
         return repo.findByCategory(category);
+    }
+
+    @Override
+    public Optional<Recipes> findById(String recipeId) {
+        return repo.findById(recipeId);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Recipes> findPostedByUser(String authorId) {
+        return repo.findByAuthorIdOrderByCreatedAtDesc(authorId);
     }
 }

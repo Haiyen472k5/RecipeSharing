@@ -8,8 +8,8 @@ public class RecipeDetailDTO {
     private String recipeId;
     private String title;
     private String description;
-    private List<String> ingredients;
-    private List<String> instructions;
+    private String ingredients;
+    private String instructions;
     private String category;
     private String authorId;
     private LocalDateTime createdAt;
@@ -56,19 +56,19 @@ public class RecipeDetailDTO {
         this.description = description;
     }
 
-    public List<String> getIngredients() {
+    public String getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
     }
 
-    public List<String> getInstructions() {
+    public String getInstructions() {
         return instructions;
     }
 
-    public void setInstructions(List<String> instructions) {
+    public void setInstructions(String instructions) {
         this.instructions = instructions;
     }
 

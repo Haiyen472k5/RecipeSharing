@@ -2,6 +2,8 @@ package org.example.recipes.user;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 /**
  * JPA Entity mapping cho bảng users trong database.
  */
@@ -10,7 +12,6 @@ import jakarta.persistence.*;
 public class Users {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", length = 10, nullable = false)
     private String id;
 
@@ -32,6 +33,12 @@ public class Users {
     @Column(name = "role", nullable = false, length = 20)
     private String role;
 
+    @Column(name="avatar_url", length=255)
+    private String avatarUrl;
+
+    @Column(name="date_of_birth")
+    private LocalDate dateOfBirth;
+
     public Users() {}
 
     public Users(String id, String username, String firstName, String lastName, String email, String password, String role) {
@@ -42,6 +49,28 @@ public class Users {
         this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+    @Transient
+    public String getFullName() {
+        return (firstName != null ? firstName : "") +
+                (lastName  != null ? " " + lastName : "");
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getId() { return id; }

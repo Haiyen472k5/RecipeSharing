@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 public interface RecipeRepository extends JpaRepository<Recipes, String> {
 
@@ -21,4 +22,6 @@ public interface RecipeRepository extends JpaRepository<Recipes, String> {
     List<Recipes> findByNameContainingIgnoreCase(String keyword);
     List<Recipes> findByCategory(String category);
     Page<Recipes> findByCategory(String category, Pageable pageable);
+    List<Recipes> findByAuthorIdOrderByCreatedAtDesc(String authorId);
+    Optional<Recipes> findByRecipeId(String recipeId);
 }

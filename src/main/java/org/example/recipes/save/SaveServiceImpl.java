@@ -1,29 +1,39 @@
 package org.example.recipes.save;
 
 import org.example.recipes.login.IdGeneratorService;
+import org.example.recipes.recipe.RecipeService;
+import org.example.recipes.recipe.Recipes;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SaveServiceImpl implements SaveService {
-    private final SaveRepository repo;
-    private final IdGeneratorService idGenerator;
+    private final SaveRepository saveRepo;
+    private final RecipeService recipeService;    // cần có service này
+    private final IdGeneratorService idGen;
 
-    public SaveServiceImpl(SaveRepository repo, IdGeneratorService idGenerator) {
-        this.repo = repo;
-        this.idGenerator = idGenerator;
+    public SaveServiceImpl(
+            SaveRepository saveRepo,
+            RecipeService recipeService,
+            IdGeneratorService idGen
+    ) {
+        this.saveRepo = saveRepo;
+        this.recipeService = recipeService;
+        this.idGen = idGen;
     }
 
     @Override
     public int countSaves(String recipeId) {
-        return repo.countByRecipeId(recipeId);
+        return saveRepo.countByRecipeId(recipeId);
     }
 
     @Override
     public boolean hasSaved(String userId, String recipeId) {
-        return repo.existsByUserIdAndRecipeId(userId, recipeId);
+        return saveRepo.existsByUserIdAndRecipeId(userId, recipeId);
     }
 
     @Override
@@ -34,11 +44,11 @@ public class SaveServiceImpl implements SaveService {
         }
         if (!hasSaved(userId, recipeId)) {
             Save e = new Save();
-            e.setSaveId(idGenerator.generateId());
+            e.setSaveId(idGen.generateId());
             e.setUserId(userId);
             e.setRecipeId(recipeId);
             e.setCreatedAt(LocalDateTime.now());
-            repo.save(e);
+            saveRepo.save(e);
         }
     }
 
@@ -48,9 +58,21 @@ public class SaveServiceImpl implements SaveService {
         if (userId == null || userId.isBlank() || recipeId == null || recipeId.isBlank()) {
             throw new IllegalArgumentException("userId and recipeId must not be null or blank");
         }
-        Save e = repo.findByUserIdAndRecipeId(userId, recipeId);
+        Save e = saveRepo.findByUserIdAndRecipeId(userId, recipeId);
         if (e != null) {
-            repo.delete(e);
+            saveRepo.delete(e);
         }
+    }
+
+    @Override
+    public List<Recipes> getSavedRecipes(String userId) {
+        return saveRepo.findByUserId(userId).stream()
+                .map(save -> {
+                    // giả sử RecipeService có method findById
+                    return recipeService.findById(save.getRecipeId())
+                            .orElseThrow(() -> new IllegalArgumentException(
+                                    "Recipe không tồn tại: " + save.getRecipeId()));
+                })
+                .collect(Collectors.toList());
     }
 }

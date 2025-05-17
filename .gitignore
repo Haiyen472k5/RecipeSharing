@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignore all application.properties (e.g. credentials, environment overrides)
+**/application.properties

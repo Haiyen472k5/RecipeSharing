@@ -16,7 +16,9 @@ create table users (
     lastname varchar(25),
     email varchar(25) not null,
     password varchar(25) not null,
-    role varchar(5) not null
+    role varchar(5) not null,
+    avatar_url varchar(255),
+    date_of_birth timestamp
 );
 
 CREATE TABLE categories (
@@ -41,6 +43,7 @@ create table recipes (
     rate_count int default 0,
     average_rating float,
     save_count int default 0,
+    avatar_url varchar(255),
     constraint fk_author foreign key (author_id) references users(user_id) on delete cascade on update cascade,
     constraint fk_recipe_category foreign key (category_id) references categories(category_id) on delete cascade on update cascade
 );

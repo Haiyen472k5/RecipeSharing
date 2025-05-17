@@ -1,56 +1,49 @@
 package org.example.recipes.category;
 
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
-@Service
-public class CategoryService {
-    private final CategoryRepository repo;
-
-    public CategoryService(CategoryRepository repo) {
-        this.repo = repo;
-    }
+public interface CategoryService {
 
     /**
-     * Record the usage of a category (increment or create).
+     * Ghi nhận (tăng usageCount) hoặc tạo mới category với tên cho trước.
      */
-    @Transactional
-    public void recordCategory(String name) {
-        repo.findById(name)
-                .ifPresentOrElse(
-                        Category::increment,
-                        () -> repo.save(new Category(name))
-                );
-    }
+    void recordCategory(String name);
 
     /**
-     * Suggest categories matching a prefix.
+     * Gợi ý tên category bắt đầu bằng prefix, sắp xếp theo usageCount giảm dần.
      */
-    @Transactional(readOnly = true)
-    public List<String> suggest(String prefix) {
-        return repo.findByNameStartingWithIgnoreCaseOrderByUsageCountDesc(prefix)
-                .stream().map(Category::getName).toList();
-    }
+    List<String> suggest(String prefix);
 
     /**
-     * Get all categories for filter dropdown.
+     * Lấy danh sách tất cả tên category, sắp xếp theo tên tăng dần.
      */
-    @Transactional(readOnly = true)
-    public List<String> getAllCategories() {
-        return repo.findAllByOrderByNameAsc()
-                .stream().map(Category::getName).toList();
-    }
+    List<String> getAllCategories();
 
     /**
-     * Get top N categories by usage count.
+     * Lấy danh sách top N tên category được dùng nhiều nhất.
      */
-    @Transactional(readOnly = true)
-    public List<String> getTopCategories(int limit) {
-        Pageable pageable = PageRequest.of(0, limit);
-        return repo.findAllByOrderByUsageCountDesc(pageable)
-                .stream().map(Category::getName).toList();
-    }
+    List<String> getTopCategories(int limit);
+
+    // Các phương thức dành cho phần Admin:
+
+    /**
+     * Lấy danh sách đầy đủ các Category (entity).
+     */
+    List<Category> getAll();
+
+    /**
+     * Thêm mới một Category (trong request body có name, usageCount).
+     * Hệ thống sẽ tự sinh categoryId.
+     */
+    void addCategory(Category category);
+
+    /**
+     * Cập nhật Category theo categoryId (String).
+     */
+    void updateCategory(String categoryId, Category category);
+
+    /**
+     * Xóa Category theo categoryId (String).
+     */
+    void deleteCategory(String categoryId);
 }
