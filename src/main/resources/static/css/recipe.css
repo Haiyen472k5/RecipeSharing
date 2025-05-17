@@ -46,7 +46,7 @@ button:focus-visible {
 .search-input {
   position: absolute;
   left: 5%;
-  width: 500px;
+  width: 30%;
   height: 30px;
   border: none;
   outline: none;
@@ -112,7 +112,7 @@ button:focus-visible {
 }
 /* === RECIPE HEADER === */
 .recipe-header {
-  width: auto;
+  width: 50%;
   margin-left: 5%;
   margin-top: 30px;
   display: flex;
@@ -153,13 +153,13 @@ button:focus-visible {
 
 .author-name {
   font-size: 15px;
-  color: black;
+  color: #333;
 }
 
 /* Ngày đăng */
 .post-date {
   font-size: 15px;
-  color: black;
+  color:#333;
 }
 
 /* Save */
@@ -174,7 +174,7 @@ button:focus-visible {
 }
 .save-count {
   font-size: 15px;
-  color: black;
+  color:#333;
 }
 
 /* Rating */
@@ -189,5 +189,70 @@ button:focus-visible {
 }
 .rating-count {
   font-size: 15px;
+  color: #333;
+}
+
+
+.recipe-caption {
+  width: 50%;
+  font-size: 16px;
   color: black;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  word-wrap: break-word;
+  white-space: normal;
+  margin-left: 5%;
+  margin-top: 10px;
+}
+
+/* ingredients*/
+.box-ingredients {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: fit-content;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+  position: relative;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-left: 5%;
+  margin-top: 20px;
+}
+
+.box-ingredients .ingredients {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  font-size: 15px;
+  color:#333;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+/*star-rating*/
+
+.star-rating {
+  display: flex;
+  gap: 10px;
+  margin-right: 5%;
+  margin-top: 20px;
+}
+
+.star {
+  width: 32px;
+  height: 32px;
+  background-image: url("static/image/star1.png"); /* ảnh sao rỗng */
+  background-size: cover;
+  cursor: pointer;
+}
+
+.star.hover,
+.star.selected {
+  background-image: url("static/image/star1.png"); /* ảnh sao vàng */
 }
