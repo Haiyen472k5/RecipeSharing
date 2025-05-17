@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class RecipeServiceImpl implements RecipeService {
@@ -104,5 +105,23 @@ public class RecipeServiceImpl implements RecipeService {
     @Transactional(readOnly = true)
     public List<Recipes> findPostedByUser(String authorId) {
         return repo.findByAuthorIdOrderByCreatedAtDesc(authorId);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<RecipeSimpleDTO> searchRecipes(String keyword) {
+        return repo.findByNameContainingIgnoreCase(keyword).stream()
+                .map(this::toSimpleDTO)
+                .collect(Collectors.toList());
+    }
+
+    private RecipeSimpleDTO toSimpleDTO(Recipes r) {
+        RecipeSimpleDTO dto = new RecipeSimpleDTO();
+        dto.setId(r.getRecipeId());
+        dto.setTitle(r.getName());
+        dto.setImageUrl(r.getAvatarUrl());
+        dto.setAverageRating(r.getAverageRating());
+        dto.setLikeCount(r.getLikeCount());
+        return dto;
     }
 }

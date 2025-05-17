@@ -120,4 +120,17 @@ public class UserServiceImpl implements UserService {
         d.setLikeCount(likeService.countLikes(r.getRecipeId()));
         return d;
     }
+
+    @Override
+    public List<UserSimpleDTO> searchUsers(String keyword) {
+        return userRepo.findByUsernameContainingIgnoreCase(keyword).stream()
+                .map(u -> {
+                    UserSimpleDTO dto = new UserSimpleDTO();
+                    dto.setUsername(u.getUsername());
+                    dto.setAvatarUrl(u.getAvatarUrl());
+                    dto.setBirthDate(u.getDateOfBirth());
+                    return dto;
+                })
+                .collect(Collectors.toList());
+    }
 }

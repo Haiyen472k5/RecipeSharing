@@ -14,4 +14,5 @@ public interface UserService {
     List<RecipeSimpleDTO> getSavedRecipes(String username);
     List<RecipeSimpleDTO> getLikedRecipes(String username);
     void updateUserInfo(String currentUsername, UserProfileUpdatedDTO dto);
+    List<UserSimpleDTO> searchUsers(String keyword);
 }

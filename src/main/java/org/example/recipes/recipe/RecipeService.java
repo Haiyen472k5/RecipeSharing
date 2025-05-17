@@ -19,4 +19,5 @@ public interface RecipeService {
     List<Recipes> getMoreRecipes(LocalDateTime before, int limit);
     List<Recipes> findPostedByUser(String authorId);
     Optional<Recipes> findById(String recipeId);
+    List<RecipeSimpleDTO> searchRecipes(String keyword);
 }
