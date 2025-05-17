@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recipe Sharing</title>
+    <link rel="stylesheet" th:href="@{/css/recipe.css}">
+</head>
+<body>
+
+<div class="navigation-bar">
+    <input type="text" id="searchInput" placeholder="Search" class="search-input">
+    <div class="menu">
+        <div id="home" class="text-wrapper">Home</div>
+        <div id="rank" class="text-wrapper">Rank</div>
+        <div id="popular" class="text-wrapper">Popular</div>
+    </div>
+    <div class="avatar-set">
+        <img class="shape" id="avatar" th:src="@{/image/avatar.png}" >
+        <img class="list" id="list" th:src="@{/image/list.png}" >
+    </div>
+</div>
+
+<div class="recipe-header">
+    <div class="recipe-title">Sườn xào chua ngọt</div>
+
+    <div class="recipe-meta">
+        <div class="author-info">
+            <img th:src="@{/image/avatar.png}" >
+            <div class="author-name">Author’s name</div>
+        </div>
+
+        <div class="post-date">26th4, 2025</div>
+
+        <div class="save-box">
+            <img th:src="@{/image/Bookmark.png}" >
+            <div class="save-count">Save 9</div>
+        </div>
+
+        <div class="rating-box">
+            <img th:src="@{/image/Star.png}" >
+            <div class="rating-count">4.5</div>
+        </div>
+    </div>
+</div>
+
+<div class="recipe-caption">
+    Hôm nay cùng mình làm món sườn xào chua ngọt vô cùng ngon và cực kỳ đơn giản nhé &lt;333
+</div>
+
+<div class="box-ingredients">
+    <p style="font-size: 23px; font-weight: 500; font-family: 'Roboto', sans-serif; color: black;">
+        Ingredients
+    </p>
+
+    <p class="ingredients">
+        500g sườn non<br>
+        1 củ hành tây, rau mùi, ớt<br>
+        Bột năng<br>
+        Hành tím, tỏi<br>
+        1 trái chanh<br>
+        Một ít bột năng hoặc bột bắp<br>
+        Gia vị: giấm (để rửa thịt), muối, nước mắm, đường, hạt nêm, nước tương, dầu hào, tiêu
+    </p>
+</div>
+
+<div class="star-rating">
+    <div class="star" data-value="1"></div>
+    <div class="star" data-value="2"></div>
+    <div class="star" data-value="3"></div>
+    <div class="star" data-value="4"></div>
+    <div class="star" data-value="5"></div>
+</div>
+<p>Bạn đã chấm: <span id="rating-result">0</span> sao</p>
+
+<script>
+    const stars = document.querySelectorAll('.star');
+    const result = document.getElementById('rating-result');
+    let selectedRating = 0;
+
+    stars.forEach(star => {
+        star.addEventListener('mouseenter', () => {
+            const value = +star.dataset.value;
+            highlightStars(value);
+        });
+
+        star.addEventListener('mouseleave', () => {
+            highlightStars(selectedRating);
+        });
+
+        star.addEventListener('click', () => {
+            selectedRating = +star.dataset.value;
+            result.textContent = selectedRating;
+            highlightStars(selectedRating);
+        });
+    });
+
+    function highlightStars(count) {
+        stars.forEach(star => {
+            const val = +star.dataset.value;
+            star.classList.toggle('hover', val <= count);
+            star.classList.toggle('selected', val <= count);
+        });
+    }
+</script>
+
+</body>
+</html>

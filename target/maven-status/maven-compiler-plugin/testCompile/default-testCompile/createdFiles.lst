@@ -1,0 +1,13 @@
+org\example\recipes\LoginControllerTest$TestConfig.class
+org\example\recipes\DatabaseConnectionTest.class
+org\example\recipes\RecipeControllerTest$TestConfig.class
+org\example\recipes\serviceTest\AuthServiceTest.class
+org\example\recipes\serviceTest\FollowServiceImplTest.class
+org\example\recipes\serviceTest\CommentServiceImplTest.class
+org\example\recipes\serviceTest\RateServiceImplTest.class
+org\example\recipes\serviceTest\MediaServiceImplTest.class
+org\example\recipes\RecipeControllerTest.class
+org\example\recipes\serviceTest\LikeServiceImplTest.class
+org\example\recipes\serviceTest\SaveServiceImplTest.class
+org\example\recipes\LoginControllerTest.class
+org\example\recipes\RecipeSharingWebsiteApplicationTests.class
