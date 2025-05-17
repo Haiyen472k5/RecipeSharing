@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.containsString;
 import org.example.recipes.exception.GlobalExceptionHandler;
 import org.example.recipes.exception.UsernameExistsException;
 import org.example.recipes.login.AuthService;
-import org.example.recipes.login.LoginController;
+import org.example.recipes.controller.LoginController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

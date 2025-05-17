@@ -1,6 +1,8 @@
-package org.example.recipes.recipe;
+package org.example.recipes.controller;
 
 import org.example.recipes.category.CategoryService;
+import org.example.recipes.recipe.RecipeService;
+import org.example.recipes.recipe.Recipes;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

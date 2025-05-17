@@ -1,5 +1,8 @@
-package org.example.recipes.recipe;
+package org.example.recipes.controller;
 
+import org.example.recipes.recipe.RecipeDetailDTO;
+import org.example.recipes.recipe.RecipeService;
+import org.example.recipes.recipe.Recipes;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;

@@ -1,5 +1,6 @@
-package org.example.recipes.news_feed;
+package org.example.recipes.controller;
 
+import org.example.recipes.news_feed.RecipeFeedItem;
 import org.example.recipes.recipe.Recipes;
 import org.example.recipes.recipe.RecipeService;
 import org.example.recipes.follow.FollowService;

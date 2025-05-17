@@ -16,7 +16,7 @@ import java.util.Optional;
 
 import org.example.recipes.category.CategoryService;
 import org.example.recipes.exception.GlobalExceptionHandler;
-import org.example.recipes.recipe.RecipeController;
+import org.example.recipes.controller.RecipeController;
 import org.example.recipes.recipe.RecipeService;
 import org.example.recipes.recipe.Recipes;
 import org.junit.jupiter.api.BeforeEach;

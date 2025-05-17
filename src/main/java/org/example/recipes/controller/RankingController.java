@@ -1,5 +1,6 @@
-package org.example.recipes.ranking;
+package org.example.recipes.controller;
 
+import org.example.recipes.ranking.RankingService;
 import org.example.recipes.recipe.Recipes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

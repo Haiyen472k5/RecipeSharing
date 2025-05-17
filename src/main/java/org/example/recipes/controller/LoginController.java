@@ -1,6 +1,9 @@
-package org.example.recipes.login;
+package org.example.recipes.controller;
 
 import org.example.recipes.exception.UsernameExistsException;
+import org.example.recipes.login.AuthService;
+import org.example.recipes.login.Login;
+import org.example.recipes.login.Register;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

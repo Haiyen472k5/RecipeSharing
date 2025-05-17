@@ -1,7 +1,11 @@
-package org.example.recipes.user;
+package org.example.recipes.controller;
 
 import jakarta.servlet.http.HttpSession;
 import org.example.recipes.recipe.RecipeSimpleDTO;
+import org.example.recipes.user.UserProfileUpdatedDTO;
+import org.example.recipes.user.UserPublicDTO;
+import org.example.recipes.user.UserService;
+import org.example.recipes.user.UserSimpleDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
