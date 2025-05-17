@@ -1,0 +1,336 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap");
+
+:root {
+    --label-secondary: rgba(60, 60, 67, 0.6);
+    --search-bg: rgba(250, 250, 250, 0.93);
+    --radius-full: 9999px;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button:focus-visible {
+    outline: 2px solid #4a90e2 !important;
+    outline-offset: 2px;
+}
+
+/* === RECIPE HEADER === */
+.recipe-header {
+    width: 100%;
+    height: fit-content;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Khoảng cách giữa title và meta */
+}
+
+/* Tiêu đề món ăn */
+.recipe-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #000;
+    line-height: 1.2;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Hàng ngang chứa avatar, tên, ngày, save, sao */
+.recipe-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* đúng như trong ảnh */
+    flex-wrap: wrap;
+    width: 100%;
+    height: fit-content;
+}
+
+/* Tác giả */
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.author-avatar {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;        
+}
+
+.author-name {
+    font-size: 15px;
+    color: #333;
+}
+
+/* Ngày đăng */
+.post-date {
+    font-size: 15px;
+    color:#333;
+}
+
+/* Save */
+.save-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.bookmark-icon {
+    width: 20px;
+    height: 20px;
+}
+.save-count {
+    font-size: 15px;
+    color:#333;
+}
+
+/* Rating */
+.rate {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+}
+.star-icon {
+    width: 25px;
+    height: 25px;
+}
+.rating-count {
+    font-size: 15px;
+    color: #333;
+}
+
+
+.recipe-caption {
+    width: 100%;
+    height: fit-content;
+    font-size: 16px;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    word-wrap: break-word;
+    white-space: normal;
+    margin-top: 10px;
+}
+
+/* ingredients*/
+.box-ingredients {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    position: relative;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.box-ingredients .ingredients {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    font-size: 15px;
+    color:#333;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+/*star-rating*/
+.rating-save {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 140px;
+    width: 100%;
+
+}
+
+.star-rating {
+    display: flex;
+    gap: 10px;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.star {
+    width: 35px;
+    height: 35px;
+    background-image: url("/images/star1.png"); 
+    background-size: cover;
+    cursor: pointer;
+}
+
+.star.hover,
+.star.selected {
+    background-image: url("/images/star2.png"); 
+}
+
+.save-post {
+     width: 32px;
+    height: 32px;
+    display: flex;
+    background-image: url("/images/bookmark.png");
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+.save-post.selected {
+    background-image: url("/images/mark-save.png");
+}
+/* BỐ CỤC 2 CỘT CHO TRANG CHI TIẾT */
+.recipe-main-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 30px 5%;
+    gap: 40px;
+}
+
+
+/* Cột trái gồm: recipe-header + caption + ingredients + instruction */
+.left-column {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Cột phải gồm: rating, save, upload ảnh */
+.right-column {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+/* Hộp hướng dẫn nấu ăn */
+.box-instruction {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 20px;
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.box-instruction .instruction {
+    font-size: 15px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+    white-space: normal;
+}
+
+/* SAVE bên phải */
+.right-save {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+/* UPLOAD + chuyển ảnh */
+.image-upload {
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.dish-preview {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.dish-preview-container {
+    width: 100%;
+    max-height: 250px;
+    border-radius: 12px;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #999;
+}
+.right-left-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+.right-left-buttons button:hover {
+    background-color: #9dd55e;
+}
+.image-placeholder {
+  width: 100%;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.dish-frame {
+  width: 100%;
+  height: fit-content;
+    max-height: 400px;
+  border-radius: 12px;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: #999;
+    margin: 5px;
+}
+.dish-frame .dish {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    height: fit-content;
+    object-fit: cover;
+    border-radius: 12px;
+}
+

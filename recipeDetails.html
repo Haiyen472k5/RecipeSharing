@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recipe Sharing</title>
+  <link rel="stylesheet" href="css/recipeDetails.css">
+  <link rel="stylesheet" href="navbar/navbar.css" />
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<!-- BẮT ĐẦU 2 CỘT -->
+<div class="recipe-main-content">
+
+  <!-- Cột trái -->
+  <div class="left-column">
+    <div class="recipe-header">
+      <div class="recipe-title">Sườn xào chua ngọt</div>
+      <div class="recipe-meta">
+        <div class="author-info">
+          <img class="author-avatar" src="images/avatar.png">
+          <div class="author-name">Author’s name</div>
+        </div>
+        <div class="post-date">26/4/2025</div>
+        <div class="save-box">
+          <img class="bookmark-icon" src="images/bookmark.png">
+          <div class="save-count">Save 9</div>
+        </div>
+        <div class="rate">
+          <img class="star-icon" src="images/star.png">
+          <div class="rating-count">4.5</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-caption">
+      Hôm nay cùng mình làm món sườn xào chua ngọt vô cùng ngon và cực kỳ đơn giản nhé &lt;333
+    </div>
+
+    <div class="box-ingredients">
+      <p style="font-size: 23px; font-weight: 500;">Ingredients</p>
+      <p class="ingredients">
+        500g sườn non<br>
+        1 củ hành tây, rau mùi, ớt<br>
+        Bột năng<br>
+        Hành tím, tỏi<br>
+        1 trái chanh<br>
+        Gia vị: giấm, muối, nước mắm, đường, hạt nêm, nước tương, dầu hào, tiêu
+      </p>
+    </div>
+
+    <div class="box-instruction">
+      <p style="font-size: 23px; font-weight: 500;">Instructions</p>
+      <p class="instruction">
+        Bước 1: Rửa sườn sạch bằng nước muối.<br>
+        Bước 2: Chiên sơ sườn cho săn lại.<br>
+        Bước 3: Làm nước sốt chua ngọt từ đường, mắm, giấm.<br>
+        Bước 4: Rim sườn với nước sốt cho đến khi sánh lại.
+      </p>
+    </div>
+  </div>
+
+  <!-- Cột phải -->
+  <div class="right-column">
+    <div class="rating-save">
+      <div class="star-rating">
+        <p style="font-size: 16px; font-weight: 600; font-family: 'Roboto', sans-serif;color: #32510f;">Rating: </p>
+        <div class="star" data-value="1"></div>
+        <div class="star" data-value="2"></div>
+        <div class="star" data-value="3"></div>
+        <div class="star" data-value="4"></div>
+        <div class="star" data-value="5"></div>
+      </div>
+      <div class="save-post" id="savePost" ></div>
+    </div>
+
+    <div class="image-placeholder">
+      <div class="dish-frame" id="dishPreview">
+        <img class="dish" src="images/dish.jpg" id="dishImage">
+      </div>
+      <div class="right-left-buttons">
+        <div class="left-buttons"><img class="left" src="images/left.png" /></div>
+        <div class="right-buttons"><img class="right" src="images/right.png" /></div> 
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  fetch("navbar/navbar.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("navbar").innerHTML = html;
+      initSearchBar(); // nếu bạn dùng chức năng tìm kiếm
+    });
+</script>
+<script src="navbar/navbar.js"></script>
+<script src="js/recipeDetails.js"></script>
+</body>
+</html>
