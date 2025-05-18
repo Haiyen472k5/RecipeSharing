@@ -70,17 +70,16 @@
          style="color: green; margin-bottom: 1rem;"></div>
 
     <form th:action="@{/auth/login}" th:object="${loginForm}" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" th:field="*{username}" placeholder="Enter username" required/>
+        <label for="username">Username or Email:</label>
+        <input type="text" id="username" th:field="*{username}" placeholder="Enter username or Email" required/>
 
         <label for="password">Password:</label>
         <input type="password" id="password" th:field="*{password}" placeholder="Enter password" required/>
 
-        <!-- lỗi đăng nhập -->
         <div th:if="${loginError}"
              th:text="${loginError}"
-             style="color: red; margin-top: .5rem;"></div>
-
+             style="color: red; margin: .5rem 0;">
+        </div>
         <button type="submit">Login</button>
     </form>
 

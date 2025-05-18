@@ -15,7 +15,7 @@ create table users (
     firstname varchar(25),
     lastname varchar(25),
     email varchar(25) not null,
-    password varchar(25) not null,
+    password varchar(255) not null,
     role varchar(5) not null,
     avatar_url varchar(255),
     date_of_birth timestamp

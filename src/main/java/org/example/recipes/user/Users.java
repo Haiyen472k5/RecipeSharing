@@ -4,10 +4,10 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-/**
- * JPA Entity mapping cho bảng users trong database.
- */
+import org.hibernate.annotations.DynamicInsert;
+
 @Entity
+@DynamicInsert
 @Table(name = "users")
 public class Users {
 
@@ -15,22 +15,22 @@ public class Users {
     @Column(name = "user_id", length = 10, nullable = false)
     private String id;
 
-    @Column(name = "username", nullable = false, unique = true, length = 50)
+    @Column(name = "username", nullable = false, unique = true, length = 25)
     private String username;
 
-    @Column(name = "firstname", length = 100)
+    @Column(name = "firstname", length = 25)
     private String firstName;
 
-    @Column(name = "lastname", length = 100)
+    @Column(name = "lastname", length = 25)
     private String lastName;
 
     @Column(name = "email", nullable = false, unique = true, length = 150)
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = false, length = 255)
     private String password;
 
-    @Column(name = "role", nullable = false, length = 20)
+    @Column(name = "role", nullable = false, length = 5)
     private String role;
 
     @Column(name="avatar_url", length=255)

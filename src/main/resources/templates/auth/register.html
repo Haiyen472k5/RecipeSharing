@@ -63,7 +63,6 @@
 <body>
 <div class="form-container">
     <h1>Register</h1>
-
     <form th:action="@{/auth/register}" th:object="${registerForm}" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" th:field="*{username}" placeholder="Enter username" required/>
@@ -74,7 +73,7 @@
         <label for="password">Password:</label>
         <input type="password" id="password" th:field="*{password}" placeholder="Enter password" required/>
 
-        <!-- lỗi đăng ký -->
+        <!-- Thông báo lỗi đăng ký (username/email tồn tại) -->
         <div th:if="${registerError}"
              th:text="${registerError}"
              style="color: red; margin-top: .5rem;"></div>

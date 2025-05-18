@@ -9,7 +9,7 @@ public class RecipeSharingWebsiteApplication {
     public static void main(String[] args) {
         SpringApplication.run(RecipeSharingWebsiteApplication.class, args);
         System.out.println("=== RecipeSharingWebsiteApplication started successfully ===");
-        System.out.println("Truy cập http://localhost:8080/templates/auth/register hoặc /auth/login để test giao diện.");
+        System.out.println("Truy cập http://localhost:8080/auth/register hoặc /auth/login để test giao diện.");
     }
 
 }

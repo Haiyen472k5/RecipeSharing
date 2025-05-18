@@ -1,6 +1,7 @@
 package org.example.recipes.login;
 
 import java.util.Optional;
+
 import org.example.recipes.exception.EmailExistsException;
 import org.example.recipes.exception.UsernameExistsException;
 import org.example.recipes.user.UserRepository;
@@ -11,6 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class AuthService {
+    public enum LoginResult {
+        SUCCESS,
+        USER_NOT_FOUND,
+        INVALID_PASSWORD
+    }
+
     private final UserRepository userRepo;
     private final PasswordEncoder passwordEncoder;
     private final IdGeneratorService idGenerator;
@@ -24,18 +31,18 @@ public class AuthService {
     }
 
     /**
-     * Kiểm tra đăng nhập bằng username hoặc email.
-     * @param principal username hoặc email
-     * @param rawPassword mật khẩu thuần
-     * @return true nếu đăng nhập hợp lệ, false nếu không
+     * Kiểm tra đăng nhập bằng username hoặc email, trả về mã lỗi cụ thể.
      */
-    public boolean login(String principal, String rawPassword) {
+    public LoginResult login(String principal, String rawPassword) {
         Optional<Users> userOpt = userRepo.findByUsernameOrEmail(principal, principal);
         if (userOpt.isEmpty()) {
-            return false;
+            return LoginResult.USER_NOT_FOUND;
         }
         Users user = userOpt.get();
-        return passwordEncoder.matches(rawPassword, user.getPassword());
+        if (!passwordEncoder.matches(rawPassword, user.getPassword())) {
+            return LoginResult.INVALID_PASSWORD;
+        }
+        return LoginResult.SUCCESS;
     }
 
     /**
@@ -49,9 +56,7 @@ public class AuthService {
         if (userRepo.existsByEmail(email)) {
             throw new EmailExistsException();
         }
-        // sinh ID mới
         String newId = idGenerator.generateId();
-
         Users u = new Users();
         u.setId(newId);
         u.setUsername(username);
