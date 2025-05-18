@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Recipe Sharing</title>
+  <title>Recipe Details</title>
   <link rel="stylesheet" href="css/recipeDetails.css">
   <link rel="stylesheet" href="navbar/navbar.css" />
 </head>
@@ -94,7 +94,7 @@
     .then(res => res.text())
     .then(html => {
       document.getElementById("navbar").innerHTML = html;
-      initSearchBar(); // nếu bạn dùng chức năng tìm kiếm
+      initNavbar(); 
     });
 </script>
 <script src="navbar/navbar.js"></script>

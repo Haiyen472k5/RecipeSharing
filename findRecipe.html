@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Recipe</title>
+    <link rel="stylesheet" href="css/findRecipe.css">
+    <link rel="stylesheet" href="navbar/navbar.css" />
+</head>
+<body>
+    <div id="navbar"></div>
+
+  <!-- Kết quả tìm kiếm sẽ được chèn vào đây -->
+  <div class="search-result" id="searchResult"></div>
+
+<script src="js/findRecipe.js"></script>
+<script src="navbar/navbar.js"></script>
+<script>
+  fetch("navbar/navbar.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("navbar").innerHTML = html;
+      initNavbar(); 
+    });
+</script>
+</body>
+
+</html>
