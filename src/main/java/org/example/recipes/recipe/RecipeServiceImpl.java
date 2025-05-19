@@ -1,11 +1,13 @@
 package org.example.recipes.recipe;
 
 import org.example.recipes.Entity.Comment;
+import org.example.recipes.Entity.Users;
 import org.example.recipes.comment.CommentDTO;
 import org.example.recipes.comment.CommentRepository;
 import org.example.recipes.comment.CommentService;
 import org.example.recipes.login.IdGeneratorService;
 import org.example.recipes.category.CategoryService;
+import org.example.recipes.user.UserRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,15 +23,18 @@ public class RecipeServiceImpl implements RecipeService {
     private final IdGeneratorService idGen;
     private final CategoryService catService;
     private final CommentRepository commentRepo;
+    private final UserRepository userRepo;
 
     public RecipeServiceImpl(RecipeRepository repo,
                              IdGeneratorService idGen,
                              CategoryService catService,
-                             CommentRepository commentRepo) {
+                             CommentRepository commentRepo,
+                             UserRepository userRepo) {
         this.repo = repo;
         this.idGen = idGen;
         this.catService = catService;
         this.commentRepo = commentRepo;
+        this.userRepo = userRepo;
 
     }
 
@@ -140,13 +145,13 @@ public class RecipeServiceImpl implements RecipeService {
 
         // Chuyển đổi từ Comment sang CommentDTO
         return comments.stream()
-                .map(comment -> new CommentDTO(
-                        comment.getContent(),
-                        comment.getUserId(),
-                        comment.getCreatedAt()
-                ))
+                .map(comment -> {
+                    String username = userRepo.findById(comment.getUserId())
+                            .map(Users::getUsername)
+                            .orElse("Người dùng ẩn"); // hoặc xử lý nếu không tìm thấy
+                    return new CommentDTO(username, comment.getContent(), comment.getCreatedAt());
+                })
                 .collect(Collectors.toList());
     }
-
 
 }

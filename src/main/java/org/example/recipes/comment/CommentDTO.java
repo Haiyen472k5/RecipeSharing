@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 
 public class CommentDTO {
     public String commentId;
-    public String recipeId;
     public String username;
     public String content;
     public LocalDateTime createdAt;
@@ -26,20 +25,12 @@ public class CommentDTO {
         this.commentId = commentId;
     }
 
-    public String getRecipeId() {
-        return recipeId;
-    }
-
-    public void setRecipeId(String recipeId) {
-        this.recipeId = recipeId;
-    }
-
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String userId) {
-        this.username = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getContent() {

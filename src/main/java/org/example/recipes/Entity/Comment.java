@@ -1,6 +1,8 @@
 package org.example.recipes.Entity;
 
 import jakarta.persistence.*;
+import org.example.recipes.recipe.Recipes;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -21,6 +23,7 @@ public class Comment {
 
     @Column(name="created_at")
     private LocalDateTime createdAt;
+
 
     public Comment() {}
 

@@ -1,6 +1,7 @@
 package org.example.recipes.controller;
 
 import org.example.recipes.Entity.Users;
+import org.example.recipes.comment.CommentDTO;
 import org.example.recipes.like.LikeService;
 import org.example.recipes.recipe.RecipeDetailDTO;
 import org.example.recipes.recipe.RecipeService;
@@ -12,6 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.http.HttpStatus;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/recipes")
@@ -46,6 +49,9 @@ public class RecipeDetailController {
         dto.setAverageRating(recipe.getAverageRating());
         dto.setSaveCount(recipe.getSaveCount());
         dto.setImageUrl(recipe.getAvatarUrl());
+        List<CommentDTO> comments = recipeService.findCommentsByRecipeId(id);
+        dto.setComments(comments);
+        dto.setCommentCount(comments.size());
 
 
         // nếu DTO có thêm trường nào, set thêm ở đây
