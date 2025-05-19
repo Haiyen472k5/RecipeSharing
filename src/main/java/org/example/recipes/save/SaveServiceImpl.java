@@ -39,7 +39,7 @@ public class SaveServiceImpl implements SaveService {
 
     @Override
     @Transactional
-    public void save(String userId, String recipeId) {
+    public boolean toggleSave(String userId, String recipeId) {
         if (userId == null || userId.isBlank() || recipeId == null || recipeId.isBlank()) {
             throw new IllegalArgumentException("userId and recipeId must not be null or blank");
         }
@@ -50,6 +50,10 @@ public class SaveServiceImpl implements SaveService {
             e.setRecipeId(recipeId);
             e.setCreatedAt(LocalDateTime.now());
             saveRepo.save(e);
+            return true;
+        } else {
+            unsave(userId, recipeId);
+            return false;
         }
     }
 

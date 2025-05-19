@@ -19,15 +19,17 @@ public class LikeServiceImpl implements LikeService {
     private final LikeRepository repo;
     private final RecipeService recipeService;
     private final IdGeneratorService idGen;
+    private final UserRepository userRepository;
 
     public LikeServiceImpl(
             LikeRepository repo,
             RecipeService recipeService,
-            IdGeneratorService idGen
-    ) {
+            IdGeneratorService idGen,
+            UserRepository userRepository) {
         this.repo = repo;
         this.recipeService = recipeService;
         this.idGen = idGen;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -36,20 +38,28 @@ public class LikeServiceImpl implements LikeService {
     }
 
     @Override
+    @Transactional
     public boolean hasLiked(String userId, String recipeId) {
         return repo.existsByUserIdAndRecipeId(userId, recipeId);
     }
 
     @Override
     @Transactional
-    public void like(String userId, String recipeId) {
-        if (!hasLiked(userId, recipeId)) {
-            Like e = new Like();
-            e.setLikeId(idGen.generateId());
-            e.setUserId(userId);
-            e.setRecipeId(recipeId);
-            e.setCreatedAt(java.time.LocalDateTime.now());
-            repo.save(e);
+    public boolean toggleLike(String userId, String recipeId) {
+        if (!userRepository.existsById(userId)) {
+            throw new IllegalArgumentException("User không tồn tại: " + userId);
+        }
+        if (repo.existsByUserIdAndRecipeId(userId, recipeId)) {
+                repo.deleteByUserIdAndRecipeId(userId, recipeId);
+                return false;
+        } else {
+            Like like = new Like();
+            like.setLikeId(idGen.generateId());
+            like.setUserId(userId);
+            like.setRecipeId(recipeId);
+            like.setCreatedAt(java.time.LocalDateTime.now());
+            repo.save(like);
+            return true;
         }
     }
 

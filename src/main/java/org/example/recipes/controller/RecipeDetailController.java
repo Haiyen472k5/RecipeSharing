@@ -5,6 +5,7 @@ import org.example.recipes.like.LikeService;
 import org.example.recipes.recipe.RecipeDetailDTO;
 import org.example.recipes.recipe.RecipeService;
 import org.example.recipes.recipe.Recipes;
+import org.example.recipes.save.SaveService;
 import org.example.recipes.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ public class RecipeDetailController {
     @Autowired private LikeService likeService;
     @Autowired private RecipeService recipeService;
     @Autowired private UserRepository userRepository;
+    @Autowired private SaveService saveService;
 
     public RecipeDetailController(RecipeService recipeService) {
         this.recipeService = recipeService;
@@ -45,17 +47,34 @@ public class RecipeDetailController {
         dto.setSaveCount(recipe.getSaveCount());
         dto.setImageUrl(recipe.getAvatarUrl());
 
+
         // nếu DTO có thêm trường nào, set thêm ở đây
 
         return ResponseEntity.ok(dto);
     }
 
-
+    @PostMapping("/{id}/like")
+    public ResponseEntity<Boolean> toggleLike(@PathVariable String id, @RequestParam String userId) {
+        boolean liked = likeService.toggleLike(userId, id);
+        return ResponseEntity.ok(liked);
+    }
 
     @GetMapping("/{id}/liked")
     public ResponseEntity<Boolean> hasLiked(@PathVariable String id, @RequestParam String userId) {
         boolean liked = likeService.hasLiked(userId, id);
         return ResponseEntity.ok(liked);
+    }
+
+    @PostMapping("/{id}/save")
+    public ResponseEntity<Boolean> toggleSave(@PathVariable String id, @RequestParam String userId) {
+        boolean saved = saveService.toggleSave(userId, id);
+        return ResponseEntity.ok(saved);
+    }
+
+    @GetMapping("/{id}/saved")
+    public ResponseEntity<Boolean> hasSaved(@PathVariable String id, @RequestParam String userId) {
+        boolean saved = saveService.hasSaved(userId, id);
+        return ResponseEntity.ok(saved);
     }
 
 
