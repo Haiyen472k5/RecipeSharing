@@ -1,5 +1,6 @@
 package org.example.recipes.save;
 
+import org.example.recipes.Entity.Save;
 import org.example.recipes.login.IdGeneratorService;
 import org.example.recipes.recipe.RecipeService;
 import org.example.recipes.recipe.Recipes;

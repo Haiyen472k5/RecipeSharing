@@ -1,5 +1,7 @@
 package org.example.recipes.category;
 
+import org.example.recipes.controller.Category;
+
 import java.util.List;
 
 public interface CategoryService {

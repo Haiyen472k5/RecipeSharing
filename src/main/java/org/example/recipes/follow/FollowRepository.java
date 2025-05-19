@@ -1,5 +1,6 @@
 package org.example.recipes.follow;
 
+import org.example.recipes.Entity.Follow;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

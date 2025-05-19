@@ -12,6 +12,12 @@ public class CommentDTO {
     public CommentDTO() {
     }
 
+    public CommentDTO(String userId, String content, LocalDateTime createdAt) {
+        this.userId = userId;
+        this.content = content;
+        this.createdAt = createdAt;
+    }
+
     public String getCommentId() {
         return commentId;
     }

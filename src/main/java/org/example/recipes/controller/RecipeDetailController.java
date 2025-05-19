@@ -1,8 +1,12 @@
 package org.example.recipes.controller;
 
+import org.example.recipes.Entity.Users;
+import org.example.recipes.like.LikeService;
 import org.example.recipes.recipe.RecipeDetailDTO;
 import org.example.recipes.recipe.RecipeService;
 import org.example.recipes.recipe.Recipes;
+import org.example.recipes.user.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -12,13 +16,15 @@ import org.springframework.http.HttpStatus;
 @RequestMapping("/api/recipes")
 public class RecipeDetailController {
 
-    private final RecipeService recipeService;
+    @Autowired private LikeService likeService;
+    @Autowired private RecipeService recipeService;
+    @Autowired private UserRepository userRepository;
 
     public RecipeDetailController(RecipeService recipeService) {
         this.recipeService = recipeService;
     }
 
-    @GetMapping("/{id}/detail")
+    @GetMapping("/{id}")
     public ResponseEntity<RecipeDetailDTO> getRecipeDetail(@PathVariable("id") String id) {
         Recipes recipe = recipeService.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(
@@ -31,13 +37,26 @@ public class RecipeDetailController {
         dto.setInstructions(recipe.getInstruction());
         dto.setIngredients(recipe.getIngredients());
         dto.setCategory(recipe.getCategory());
-        dto.setAuthorId(recipe.getAuthorId());
+        dto.setAuthorName(recipe.getAuthorName());
+        dto.setAuthorUrl(recipe.getAuthorUrl());
         dto.setCreatedAt(recipe.getCreatedAt());
         dto.setLikeCount(recipe.getLikeCount());
         dto.setAverageRating(recipe.getAverageRating());
         dto.setSaveCount(recipe.getSaveCount());
+        dto.setImageUrl(recipe.getAvatarUrl());
+
         // nếu DTO có thêm trường nào, set thêm ở đây
 
         return ResponseEntity.ok(dto);
     }
+
+
+
+    @GetMapping("/{id}/liked")
+    public ResponseEntity<Boolean> hasLiked(@PathVariable String id, @RequestParam String userId) {
+        boolean liked = likeService.hasLiked(userId, id);
+        return ResponseEntity.ok(liked);
+    }
+
+
 }

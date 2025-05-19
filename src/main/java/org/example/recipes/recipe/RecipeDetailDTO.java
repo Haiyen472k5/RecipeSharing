@@ -1,5 +1,6 @@
 package org.example.recipes.recipe;
 
+
 import org.example.recipes.comment.CommentDTO;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -12,7 +13,18 @@ public class RecipeDetailDTO {
     private String instructions;
     private String category;
     private String authorId;
+    private String authorName;
+    private String authorUrl;
     private LocalDateTime createdAt;
+    private String imageUrl;
+
+    public String getAuthorUrl() {
+        return authorUrl;
+    }
+
+    public void setAuthorUrl(String authorUrl) {
+        this.authorUrl = authorUrl;
+    }
 
     // NEW: media URLs
     private List<String> mediaUrls;
@@ -25,6 +37,22 @@ public class RecipeDetailDTO {
     private float averageRating;
     private int ratingCount;
     private int userRating;
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     // Bình luận
     private List<CommentDTO> comments;

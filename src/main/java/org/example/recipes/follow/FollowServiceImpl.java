@@ -1,9 +1,10 @@
 package org.example.recipes.follow;
 
+import org.example.recipes.Entity.Follow;
 import org.example.recipes.login.IdGeneratorService;
 import org.example.recipes.user.UserRepository;
 import org.example.recipes.user.UserSimpleDTO;
-import org.example.recipes.user.Users;
+import org.example.recipes.Entity.Users;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -3,6 +3,7 @@ package org.example.recipes.user;
 import java.time.LocalDate;
 
 public class UserPublicDTO {
+    private String id;
     private String username;
     private String fullName;
     private String avatarUrl;
@@ -13,6 +14,14 @@ public class UserPublicDTO {
     private double averageRating;
 
     public UserPublicDTO() {}
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;

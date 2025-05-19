@@ -1,4 +1,4 @@
-package org.example.recipes.category;
+package org.example.recipes.controller;
 
 import jakarta.persistence.*;
 

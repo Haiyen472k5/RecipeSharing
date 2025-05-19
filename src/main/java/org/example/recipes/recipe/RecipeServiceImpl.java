@@ -1,5 +1,9 @@
 package org.example.recipes.recipe;
 
+import org.example.recipes.Entity.Comment;
+import org.example.recipes.comment.CommentDTO;
+import org.example.recipes.comment.CommentRepository;
+import org.example.recipes.comment.CommentService;
 import org.example.recipes.login.IdGeneratorService;
 import org.example.recipes.category.CategoryService;
 import org.springframework.data.domain.PageRequest;
@@ -16,13 +20,17 @@ public class RecipeServiceImpl implements RecipeService {
     private final RecipeRepository repo;
     private final IdGeneratorService idGen;
     private final CategoryService catService;
+    private final CommentRepository commentRepo;
 
     public RecipeServiceImpl(RecipeRepository repo,
                              IdGeneratorService idGen,
-                             CategoryService catService) {
+                             CategoryService catService,
+                             CommentRepository commentRepo) {
         this.repo = repo;
         this.idGen = idGen;
         this.catService = catService;
+        this.commentRepo = commentRepo;
+
     }
 
     @Override
@@ -124,4 +132,21 @@ public class RecipeServiceImpl implements RecipeService {
         dto.setLikeCount(r.getLikeCount());
         return dto;
     }
+
+    @Override
+    public List<CommentDTO> findCommentsByRecipeId(String recipeId) {
+        // Lấy danh sách Comment từ repository
+        List<Comment> comments = commentRepo.findByRecipeId(recipeId);
+
+        // Chuyển đổi từ Comment sang CommentDTO
+        return comments.stream()
+                .map(comment -> new CommentDTO(
+                        comment.getContent(),
+                        comment.getUserId(),
+                        comment.getCreatedAt()
+                ))
+                .collect(Collectors.toList());
+    }
+
+
 }

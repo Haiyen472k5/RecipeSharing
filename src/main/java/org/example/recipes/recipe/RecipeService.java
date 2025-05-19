@@ -1,5 +1,7 @@
 package org.example.recipes.recipe;
 
+import org.example.recipes.comment.CommentDTO;
+
 import java.util.List;
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -20,4 +22,5 @@ public interface RecipeService {
     List<Recipes> findPostedByUser(String authorId);
     Optional<Recipes> findById(String recipeId);
     List<RecipeSimpleDTO> searchRecipes(String keyword);
+    List<CommentDTO> findCommentsByRecipeId(String recipeId);
 }

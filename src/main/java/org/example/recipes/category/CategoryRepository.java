@@ -1,5 +1,6 @@
 package org.example.recipes.category;
 
+import org.example.recipes.controller.Category;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;

@@ -7,10 +7,13 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "recipes")
+@SecondaryTable(
+        name = "recipe_stats",
+        pkJoinColumns = @PrimaryKeyJoinColumn(name = "recipe_id")
+)
 public class Recipes {
-
     @Id
-    @Column(name = "recipe_id", length = 10, nullable = false)
+    @Column(name = "recipe_id", length = 10)
     private String recipeId;
 
     @Column(name = "name", length = 100)
@@ -22,7 +25,7 @@ public class Recipes {
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
-    @Column(name = "category", length = 100)
+    @Column(name = "category_name", length = 100)
     private String category;
 
     @Column(name = "category_id", length = 10)
@@ -38,35 +41,48 @@ public class Recipes {
     private String authorId;
 
     @CreationTimestamp
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "comment_count")
-    private Integer commentCount = 0;
-
-    @Column(name = "like_count")
-    private Integer likeCount = 0;
-
-    @Column(name = "rate_count")
-    private Integer rateCount = 0;
-
-    @Column(name = "average_rating")
-    private Float averageRating;
-
-    @Column(name = "save_count")
-    private Integer saveCount = 0;
-
-    @Column(name="avatar_url", length=255)
+    @Column(name = "avatar_url", length = 255)
     private String avatarUrl;
 
-    // Default constructor
-    public Recipes() {}
+    @Column(name = "author_url", length = 255)
+    private String authorUrl;
 
-    // Getters and setters
+    // --- thống kê từ recipe_stats ---
+    @Column(table = "recipe_stats", name = "like_count")
+    private int likeCount;
+
+    @Column(table = "recipe_stats", name = "save_count")
+    private int saveCount;
+
+    @Column(table = "recipe_stats", name = "comment_count")
+    private int commentCount;
+
+    @Column(table = "recipe_stats", name = "rate_count")
+    private int rateCount;
+
+    @Column(table = "recipe_stats", name = "average_rating")
+    private float averageRating;
+
+    public Recipes() {}
 
 
     public String getAvatarUrl() {
         return avatarUrl;
+    }
+
+    public String getAuthorUrl() {
+        return authorUrl;
+    }
+
+    public void setAuthorUrl(String authorUrl) {
+        this.authorUrl = authorUrl;
+    }
+
+    public void setAverageRating(float averageRating) {
+        this.averageRating = averageRating;
     }
 
     public void setAvatarUrl(String avatarUrl) {

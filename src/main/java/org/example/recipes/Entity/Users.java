@@ -1,8 +1,9 @@
-package org.example.recipes.user;
+package org.example.recipes.Entity;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+
 
 import org.hibernate.annotations.DynamicInsert;
 
@@ -38,6 +39,9 @@ public class Users {
 
     @Column(name="date_of_birth")
     private LocalDate dateOfBirth;
+
+
+
 
     public Users() {}
 

@@ -14,7 +14,7 @@ import org.example.recipes.login.AuthService;
 import org.example.recipes.login.AuthService.LoginResult;
 import org.example.recipes.login.IdGeneratorService;
 import org.example.recipes.user.UserRepository;
-import org.example.recipes.user.Users;
+import org.example.recipes.Entity.Users;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;

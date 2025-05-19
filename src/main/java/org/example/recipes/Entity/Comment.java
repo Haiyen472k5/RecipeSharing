@@ -1,4 +1,4 @@
-package org.example.recipes.comment;
+package org.example.recipes.Entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;

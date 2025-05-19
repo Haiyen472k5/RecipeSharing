@@ -1,8 +1,13 @@
 package org.example.recipes.like;
 
+import org.example.recipes.Entity.Like;
+import org.example.recipes.Entity.Users;
 import org.example.recipes.login.IdGeneratorService;
+import org.example.recipes.recipe.RecipeRepository;
 import org.example.recipes.recipe.RecipeService;
 import org.example.recipes.recipe.Recipes;
+import org.example.recipes.user.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

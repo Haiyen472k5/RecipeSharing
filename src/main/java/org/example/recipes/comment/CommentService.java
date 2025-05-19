@@ -1,5 +1,7 @@
 package org.example.recipes.comment;
 
+import org.example.recipes.Entity.Comment;
+
 import java.util.List;
 
 public interface CommentService {

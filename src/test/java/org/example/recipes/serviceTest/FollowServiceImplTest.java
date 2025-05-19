@@ -1,6 +1,6 @@
 package org.example.recipes.serviceTest;
 
-import org.example.recipes.follow.Follow;
+import org.example.recipes.Entity.Follow;
 import org.example.recipes.follow.FollowRepository;
 import org.example.recipes.follow.FollowServiceImpl;
 import org.example.recipes.login.IdGeneratorService;

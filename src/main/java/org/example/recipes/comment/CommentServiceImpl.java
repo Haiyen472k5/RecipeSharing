@@ -1,11 +1,11 @@
 package org.example.recipes.comment;
 
+import org.example.recipes.Entity.Comment;
 import org.example.recipes.login.IdGeneratorService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class CommentServiceImpl implements CommentService {

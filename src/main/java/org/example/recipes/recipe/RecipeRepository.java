@@ -24,4 +24,5 @@ public interface RecipeRepository extends JpaRepository<Recipes, String> {
     Page<Recipes> findByCategory(String category, Pageable pageable);
     List<Recipes> findByAuthorIdOrderByCreatedAtDesc(String authorId);
     Optional<Recipes> findByRecipeId(String recipeId);
+
 }

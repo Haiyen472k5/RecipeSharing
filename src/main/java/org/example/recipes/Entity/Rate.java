@@ -1,26 +1,34 @@
-package org.example.recipes.like;
+// src/main/java/org/example/recipes/rate/Rate.java
+package org.example.recipes.Entity;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "likes")
-public class Like {
+@Table(name = "rates")
+public class Rate {
     @Id
-    @Column(name = "like_id", length = 10)
-    private String likeId;
+    @Column(name="rate_id", length=10)
+    private String rateId;
 
-    @Column(name = "recipe_id", length = 10, nullable = false)
+    @Column(name="recipe_id", length=10, nullable=false)
     private String recipeId;
 
-    @Column(name = "user_id", length = 10)
+    @Column(name="user_id", length=10)
     private String userId;
+
+    @Column(name="rating", nullable=false)
+    private int rating;
 
     @Column(name="created_at")
     private LocalDateTime createdAt;
 
-    public Like() {}
+    public Rate() {}
+
+    public String getRateId() {
+        return rateId;
+    }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
@@ -30,12 +38,8 @@ public class Like {
         this.createdAt = createdAt;
     }
 
-    public String getLikeId() {
-        return likeId;
-    }
-
-    public void setLikeId(String likeId) {
-        this.likeId = likeId;
+    public void setRateId(String rateId) {
+        this.rateId = rateId;
     }
 
     public String getRecipeId() {
@@ -52,5 +56,13 @@ public class Like {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }

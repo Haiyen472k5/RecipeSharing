@@ -1,10 +1,9 @@
 package org.example.recipes.serviceTest;
 
 import org.example.recipes.login.IdGeneratorService;
-import org.example.recipes.save.Save;
+import org.example.recipes.Entity.Save;
 import org.example.recipes.save.SaveRepository;
 import org.example.recipes.save.SaveServiceImpl;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;

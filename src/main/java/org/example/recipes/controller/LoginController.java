@@ -66,7 +66,7 @@ public class LoginController {
             case SUCCESS:
             default:
                 // đăng nhập thành công
-                return "redirect:/index";
+                return "redirect:home/recipes";
         }
     }
 }

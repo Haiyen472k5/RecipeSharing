@@ -1,5 +1,5 @@
 // src/main/java/org/example/recipes/save/Save.java
-package org.example.recipes.save;
+package org.example.recipes.Entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;

@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.example.recipes.exception.EmailExistsException;
 import org.example.recipes.exception.UsernameExistsException;
 import org.example.recipes.user.UserRepository;
-import org.example.recipes.user.Users;
+import org.example.recipes.Entity.Users;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

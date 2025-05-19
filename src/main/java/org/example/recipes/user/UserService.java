@@ -1,10 +1,8 @@
 package org.example.recipes.user;
 
 import org.example.recipes.recipe.RecipeSimpleDTO;
-import org.example.recipes.recipe.Recipes;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService {
     List<UserSimpleDTO> getFollowers(String username); /// lay danh sach nguoi dang theo doi minh

@@ -1,4 +1,4 @@
-package org.example.recipes.follow;
+package org.example.recipes.Entity;
 
 import jakarta.persistence.*;
 

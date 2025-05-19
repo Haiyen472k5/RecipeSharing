@@ -1,7 +1,6 @@
 package org.example.recipes.controller;
 
 import org.example.recipes.admin.AdminService;
-import org.example.recipes.category.Category;
 import org.example.recipes.category.CategoryService;
 import org.example.recipes.recipe.RecipeSimpleDTO;
 import org.example.recipes.user.UserPublicDTO;

@@ -1,5 +1,6 @@
 package org.example.recipes.user;
 
+import org.example.recipes.Entity.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

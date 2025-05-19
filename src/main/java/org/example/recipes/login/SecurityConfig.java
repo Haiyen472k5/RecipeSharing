@@ -1,7 +1,7 @@
 package org.example.recipes.login;
 
 import org.example.recipes.user.UserRepository;
-import org.example.recipes.user.Users;
+import org.example.recipes.Entity.Users;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -46,7 +46,7 @@ public class SecurityConfig {
                 .formLogin(form -> form
                         .loginPage("/auth/login")
                         .loginProcessingUrl("/auth/login")
-                        .defaultSuccessUrl("/", true)
+                        .defaultSuccessUrl("/profile", true)
                         .failureUrl("/auth/login?error")
                         .permitAll()
                 )

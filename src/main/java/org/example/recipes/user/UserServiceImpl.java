@@ -1,5 +1,6 @@
 package org.example.recipes.user;
 
+import org.example.recipes.Entity.Users;
 import org.example.recipes.follow.FollowService;
 import org.example.recipes.recipe.RecipeService;
 import org.example.recipes.recipe.RecipeSimpleDTO;
@@ -40,30 +41,37 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserSimpleDTO> getFollowers(String userId) {
+    public List<UserSimpleDTO> getFollowers(String username) {
+        Users user = userRepo.findByUsername(username)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with ID: " + username));
+        String userId = user.getId();
         return followService.getFollowers(userId);
     }
 
     @Override
-    public List<UserSimpleDTO> getFollowing(String userId) {
+    public List<UserSimpleDTO> getFollowing(String username) {
+        Users user = userRepo.findByUsername(username)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with ID: " + username));
+        String userId = user.getId();
         return followService.getFollowing(userId);
     }
 
     @Override
-    public UserPublicDTO getPublicProfile(String userId) {
-        Users user = userRepo.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User not found with ID: " + userId));
+    public UserPublicDTO getPublicProfile(String username) {
+        Users user = userRepo.findByUsername(username)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with ID: " + username));
 
         UserPublicDTO dto = new UserPublicDTO();
+        dto.setId(user.getId());
         dto.setUsername(user.getUsername());
         dto.setFullName(user.getFirstName() + " " + user.getLastName());
         dto.setAvatarUrl(user.getAvatarUrl());
         dto.setDateOfBirth(user.getDateOfBirth());
 
         // Basic statistics
-        dto.setFollowersCount(followService.getFollowers(userId).size());
-        dto.setFollowingCount(followService.getFollowing(userId).size());
-        List<Recipes> posts = recipeService.findPostedByUser(userId);
+        dto.setFollowersCount(followService.getFollowers(user.getId()).size());
+        dto.setFollowingCount(followService.getFollowing(user.getId()).size());
+        List<Recipes> posts = recipeService.findPostedByUser(user.getId());
         dto.setTotalPosts(posts.size());
 
         // Calculate average rating across all posts
@@ -71,27 +79,37 @@ public class UserServiceImpl implements UserService {
                 .mapToDouble(r -> rateService.getAverageRating(r.getRecipeId()))
                 .average()
                 .orElse(0.0);
+        avgRating = Math.round(avgRating * 100.0) / 100.0;
         dto.setAverageRating(avgRating);
 
         return dto;
     }
 
     @Override
-    public List<RecipeSimpleDTO> getPostedRecipes(String userId) {
+    public List<RecipeSimpleDTO> getPostedRecipes(String username) {
+        Users user = userRepo.findByUsername(username)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with ID: " + username));
+        String userId = user.getId();
         return recipeService.findPostedByUser(userId).stream()
                 .map(this::toSimpleDTO)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<RecipeSimpleDTO> getSavedRecipes(String userId) {
+    public List<RecipeSimpleDTO> getSavedRecipes(String username) {
+        Users user = userRepo.findByUsername(username)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with ID: " + username));
+        String userId = user.getId();
         return saveService.getSavedRecipes(userId).stream()
                 .map(this::toSimpleDTO)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<RecipeSimpleDTO> getLikedRecipes(String userId) {
+    public List<RecipeSimpleDTO> getLikedRecipes(String username) {
+        Users user = userRepo.findByUsername(username)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with ID: " + username));
+        String userId = user.getId();
         return likeService.getLikedRecipes(userId).stream()
                 .map(this::toSimpleDTO)
                 .collect(Collectors.toList());
@@ -99,9 +117,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void updateUserInfo(String currentUserId, UserProfileUpdatedDTO dto) {
-        Users user = userRepo.findById(currentUserId)
-                .orElseThrow(() -> new IllegalArgumentException("User not found with ID: " + currentUserId));
+    public void updateUserInfo(String currentUserName, UserProfileUpdatedDTO dto) {
+        Users user = userRepo.findByUsername(currentUserName)
+                .orElseThrow(() -> new IllegalArgumentException("User not found with username: " + currentUserName));
+
 
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
@@ -109,6 +128,7 @@ public class UserServiceImpl implements UserService {
         user.setDateOfBirth(dto.getDateOfBirth());
 
         userRepo.save(user);
+
     }
 
     private RecipeSimpleDTO toSimpleDTO(Recipes r) {

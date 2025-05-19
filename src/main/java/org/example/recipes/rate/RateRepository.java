@@ -1,7 +1,7 @@
 // src/main/java/org/example/recipes/rate/RateRepository.java
 package org.example.recipes.rate;
 
-import org.example.recipes.recipe.Recipes;
+import org.example.recipes.Entity.Rate;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

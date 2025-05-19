@@ -1,6 +1,7 @@
 // src/main/java/org/example/recipes/save/SaveRepository.java
 package org.example.recipes.save;
 
+import org.example.recipes.Entity.Save;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

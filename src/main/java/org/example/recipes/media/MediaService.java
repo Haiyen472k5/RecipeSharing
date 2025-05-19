@@ -1,9 +1,6 @@
 // src/main/java/org/example/recipes/media/MediaService.java
 package org.example.recipes.media;
 
-import org.example.recipes.comment.Comment;
-import org.example.recipes.recipe.Recipes;
-
 import java.util.List;
 
 public interface MediaService {

@@ -1,5 +1,7 @@
 package org.example.recipes.like;
 
+import org.example.recipes.Entity.*;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

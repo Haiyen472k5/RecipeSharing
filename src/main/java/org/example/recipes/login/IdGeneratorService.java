@@ -1,6 +1,7 @@
 // src/main/java/org/example/recipes/login/IdGeneratorService.java
 package org.example.recipes.login;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -8,7 +9,8 @@ import java.util.Optional;
 
 @Service
 public class IdGeneratorService {
-    private final IdSeqRepository seqRepo;
+    @Autowired
+    final IdSeqRepository seqRepo;
     private static final String PREFIX   = "ID";
     private static final int    PAD_SIZE = 8;
 

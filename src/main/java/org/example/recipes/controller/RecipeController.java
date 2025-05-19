@@ -70,4 +70,8 @@ public class RecipeController {
     public List<String> suggestCategories(@RequestParam("q") String q) {
         return categoryService.suggest(q);
     }
+
+
+
+
 }

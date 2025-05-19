@@ -1,6 +1,7 @@
 // src/main/java/org/example/recipes/rate/RateServiceImpl.java
 package org.example.recipes.rate;
 
+import org.example.recipes.Entity.Rate;
 import org.example.recipes.login.IdGeneratorService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

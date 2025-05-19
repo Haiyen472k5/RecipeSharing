@@ -1,5 +1,6 @@
 package org.example.recipes.category;
 
+import org.example.recipes.controller.Category;
 import org.example.recipes.exception.BusinessException;
 import org.example.recipes.login.IdGeneratorService;
 import org.springframework.data.domain.PageRequest;

@@ -1,6 +1,6 @@
 package org.example.recipes.serviceTest;
 
-import org.example.recipes.comment.Comment;
+import org.example.recipes.Entity.Comment;
 import org.example.recipes.comment.CommentRepository;
 import org.example.recipes.comment.CommentServiceImpl;
 import org.example.recipes.login.IdGeneratorService;

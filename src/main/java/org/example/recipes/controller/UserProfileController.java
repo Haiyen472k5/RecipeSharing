@@ -72,13 +72,9 @@ public class UserProfileController {
     @PutMapping("/{username}/edit")
     public ResponseEntity<String> updateUserProfile(
             @PathVariable String username,
-            @RequestBody UserProfileUpdatedDTO dto,
-            HttpSession session) {
-
+            @RequestBody UserProfileUpdatedDTO dto) {
         userService.updateUserInfo(username, dto);
 
-        // 🔁 Cập nhật session nếu username đã thay đổi
-        session.setAttribute("username", dto.getUsername());
 
         return ResponseEntity.ok("Cập nhật thành công");
     }
