@@ -132,12 +132,18 @@
             <span id="modal-rating"></span> |
             <button id="modal-likeBtn" style="cursor:pointer;" onclick="toggleLike()">🤍</button>
             <span id="modal-likes"> lượt thích</span> |
-            <button id="modal-saveBtn" style="cursor: pointer;" onclick="toggleSave()">🔖 Save</button>
+            <button id="modal-saveBtn" style="cursor: pointer;" onclick="toggleSave()">🔖</button>
+            <button id="modal-commentBtn" style="cursor: pointer;" onclick="showComment()">💬</button>
+            <span id="modal-comment-count"></span>
 
 
         </p>
-        <h3>Bình luận: <span id="modal-comment-count"></span></h3>
+        <h3>Bình luận: </h3>
         <ul id="modal-comments"></ul>
+        <form id="comment" style="display: none">
+            <label for="commentText"></label>
+            <input type="text" id="commentText" name="commentText" placeholder="Nhập comment" required>
+        </form>
     </div>
 </div>
 
@@ -145,6 +151,12 @@
 
 
 <script th:inline="javascript">
+
+    function showComment() {
+        const form = document.getElementById("comment");
+        form.style.display = (form.style.display === "none" || form.style.display === "") ? "block" : "none";
+        document.getElementById("commentText").focus(); // Tự động focus vào ô nhập
+    }
 
     const currentUsername = /*[[${user.username}]]*/ ""
     const currentUserId = /*[[${user.id}]]*/ ""
@@ -204,6 +216,8 @@
                 document.getElementById("modal-category").innerText = data.category;
                 document.getElementById("modal-rating").innerText = data.averageRating;
                 document.getElementById("modal-likes").innerText = data.likeCount;
+                document.getElementById("modal-comment-count").innerText = data.commentCount;
+
                 const ul = document.getElementById("modal-comments");
                 ul.innerHTML = "";
                 data.comments.forEach(c => {
@@ -214,6 +228,8 @@
 
                 updateLikeCount();
                 loadLikeStatus();
+                loadSaveStatus();
+
                 document.getElementById("recipeModal").style.display = "flex";
             });
         /// Khi click vào một ảnh công thức
@@ -298,6 +314,72 @@
             }
         }
     }
+
+    function loadSaveStatus() {
+        fetch(`/api/recipes/${currentRecipeId}/saved?userId=${currentUserId}`)
+            .then(res => res.json())
+            .then(saved => {
+                document.getElementById("modal-saveBtn").innerText = saved ? "📌" : "🔖";
+            });
+    }
+
+    function toggleSave() {
+        fetch(`/api/recipes/${currentRecipeId}/save?userId=${currentUserId}`, {
+            method: 'POST'
+        })
+            .then(res => res.json())
+            .then(saved => {
+                document.getElementById("modal-saveBtn").innerText = saved ? "📌" : "🔖";
+                console.log(currentRecipeId);
+                syncSavedTab(saved, currentRecipeId);
+            });
+    }
+
+    function syncSavedTab(saved, recipeId) {
+        const container = document.getElementById("saved-container");
+        const emptyMessage = document.getElementById("saved-empty");
+        const savedPostId = "saved-post-" + recipeId;
+
+        console.log("recipeId", recipeId);
+
+        if (saved) {
+            // Nếu chưa tồn tại => thêm vào
+            if (!document.getElementById(savedPostId)) {
+                fetch(`/api/recipes/${recipeId}`)
+                    .then(res => res.json())
+                    .then(post => {
+                        const div = document.createElement("div");
+                        div.className = "grid-item";
+                        div.id = savedPostId;
+                        console.log(savedPostId);
+                        div.setAttribute("data-id", recipeId);
+                        div.style.cursor = "pointer";
+                        div.onclick = function () { openRecipeModal(recipeId); };
+                        const img = document.createElement("img");
+                        img.src = post.imageUrl;
+                        img.alt = post.title;
+
+                        div.appendChild(img);
+                        container.appendChild(div);
+
+                        // Ẩn dòng "Chưa có bài viết nào."
+                        if (emptyMessage) emptyMessage.style.display = "none";
+                    });
+            }
+        } else {
+            // Nếu tồn tại => gỡ khỏi danh sách
+            const savedPost = document.getElementById(savedPostId);
+            if (savedPost) {
+                savedPost.remove();
+            }
+
+            // Nếu danh sách rỗng sau khi xóa => hiện "Chưa có bài viết nào."
+            if (container.children.length === 0 && emptyMessage) {
+                emptyMessage.style.display = "block";
+            }
+        }
+    }
+
 </script>
 
 </body>
