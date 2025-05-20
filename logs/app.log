@@ -54923,3 +54923,3757 @@ Caused by: java.net.ConnectException: Connection refused: getsockopt
 2025-05-20T21:42:03.119+07:00  INFO 21932 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-05-20T21:42:03.126+07:00  INFO 21932 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-05-20T21:42:03.138+07:00  INFO 21932 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-20T21:45:31.389+07:00  INFO 29220 --- [restartedMain] o.e.r.RecipeSharingWebsiteApplication    : Starting RecipeSharingWebsiteApplication using Java 23 with PID 29220 (C:\RecipeSharing\target\classes started by haiye in C:\RecipeSharing)
+2025-05-20T21:45:31.392+07:00  INFO 29220 --- [restartedMain] o.e.r.RecipeSharingWebsiteApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-05-20T21:45:31.454+07:00  INFO 29220 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-05-20T21:45:31.455+07:00  INFO 29220 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-05-20T21:45:32.572+07:00  INFO 29220 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-20T21:45:32.776+07:00  INFO 29220 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 191 ms. Found 10 JPA repository interfaces.
+2025-05-20T21:45:33.717+07:00  INFO 29220 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-20T21:45:33.732+07:00  INFO 29220 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-20T21:45:33.732+07:00  INFO 29220 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-20T21:45:33.785+07:00  INFO 29220 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-20T21:45:33.787+07:00  INFO 29220 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2332 ms
+2025-05-20T21:45:34.177+07:00  INFO 29220 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-20T21:45:34.255+07:00  INFO 29220 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-20T21:45:34.299+07:00  INFO 29220 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-20T21:45:34.636+07:00  INFO 29220 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-20T21:45:34.672+07:00  INFO 29220 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-20T21:45:34.854+07:00  INFO 29220 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@522190aa
+2025-05-20T21:45:34.857+07:00  INFO 29220 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-20T21:45:34.887+07:00  WARN 29220 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20T21:45:34.889+07:00  WARN 29220 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-05-20T21:45:34.907+07:00  INFO 29220 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-20T21:45:36.069+07:00  INFO 29220 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20T21:45:36.073+07:00  INFO 29220 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-20T21:45:36.645+07:00  INFO 29220 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-20T21:45:37.205+07:00  WARN 29220 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-20T21:45:37.253+07:00  INFO 29220 --- [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-05-20T21:45:37.330+07:00  INFO 29220 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2025-05-20T21:45:37.728+07:00  INFO 29220 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-05-20T21:45:38.209+07:00  INFO 29220 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3307/cnpm'
+2025-05-20T21:45:38.367+07:00  INFO 29220 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-05-20T21:45:38.443+07:00  INFO 29220 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-05-20T21:45:38.576+07:00  INFO 29220 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-20T21:45:38.586+07:00  INFO 29220 --- [restartedMain] o.e.r.RecipeSharingWebsiteApplication    : Started RecipeSharingWebsiteApplication in 7.672 seconds (process running for 8.548)
+2025-05-20T21:45:38.956+07:00  INFO 29220 --- [RMI TCP Connection(2)-172.21.176.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-20T21:45:38.957+07:00  INFO 29220 --- [RMI TCP Connection(2)-172.21.176.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-20T21:45:38.959+07:00  INFO 29220 --- [RMI TCP Connection(2)-172.21.176.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-20T21:45:40.306+07:00  WARN 29220 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2025-05-20T21:45:45.866+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+        or u1_0.email=?
+2025-05-20T21:45:46.157+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-05-20T21:45:46.167+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        f1_0.follow_id,
+        f1_0.follow_time,
+        f1_0.follower_id,
+        f1_0.following_id 
+    from
+        follows f1_0 
+    where
+        f1_0.following_id=?
+2025-05-20T21:45:46.210+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:45:46.218+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        f1_0.follow_id,
+        f1_0.follow_time,
+        f1_0.follower_id,
+        f1_0.following_id 
+    from
+        follows f1_0 
+    where
+        f1_0.follower_id=?
+2025-05-20T21:45:46.225+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:45:46.237+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.author_id=? 
+    order by
+        r1_0.created_at desc
+2025-05-20T21:45:46.274+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:45:46.280+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:45:46.283+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:45:46.290+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-05-20T21:45:46.300+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.author_id=? 
+    order by
+        r1_0.created_at desc
+2025-05-20T21:45:46.307+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:45:46.315+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        count(l1_0.like_id) 
+    from
+        likes l1_0 
+    where
+        l1_0.recipe_id=?
+2025-05-20T21:45:46.318+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:45:46.322+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        count(l1_0.like_id) 
+    from
+        likes l1_0 
+    where
+        l1_0.recipe_id=?
+2025-05-20T21:45:46.326+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:45:46.329+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        count(l1_0.like_id) 
+    from
+        likes l1_0 
+    where
+        l1_0.recipe_id=?
+2025-05-20T21:45:46.333+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-05-20T21:45:46.338+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id,
+        s1_0.created_at,
+        s1_0.recipe_id,
+        s1_0.user_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=?
+2025-05-20T21:45:46.352+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:45:46.357+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        count(l1_0.like_id) 
+    from
+        likes l1_0 
+    where
+        l1_0.recipe_id=?
+2025-05-20T21:45:46.360+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:45:46.364+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        count(l1_0.like_id) 
+    from
+        likes l1_0 
+    where
+        l1_0.recipe_id=?
+2025-05-20T21:45:46.368+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-05-20T21:45:46.374+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id,
+        l1_0.created_at,
+        l1_0.recipe_id,
+        l1_0.user_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=?
+2025-05-20T21:45:46.385+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:45:46.391+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        count(l1_0.like_id) 
+    from
+        likes l1_0 
+    where
+        l1_0.recipe_id=?
+2025-05-20T21:45:46.395+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:45:46.401+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        count(l1_0.like_id) 
+    from
+        likes l1_0 
+    where
+        l1_0.recipe_id=?
+2025-05-20T21:45:46.404+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:45:46.409+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        count(l1_0.like_id) 
+    from
+        likes l1_0 
+    where
+        l1_0.recipe_id=?
+2025-05-20T21:45:46.561+07:00  WARN 29220 --- [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2025-05-20T21:45:50.799+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:45:50.807+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:45:50.812+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:45:50.848+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:45:50.852+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:45:50.855+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:45:50.872+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:45:50.872+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:45:58.363+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:45:58.368+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:45:58.372+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:45:58.387+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:45:58.387+07:00 DEBUG 29220 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:45:58.389+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:45:58.395+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:45:58.399+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:26.241+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:46:26.247+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:46:26.251+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:26.262+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:46:26.263+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:46:26.264+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:46:26.290+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:46:26.297+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:29.669+07:00 DEBUG 29220 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:46:29.675+07:00 DEBUG 29220 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:46:29.680+07:00 DEBUG 29220 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:29.694+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:46:29.694+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:46:29.694+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:46:29.700+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:46:29.704+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:53.027+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:46:53.031+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:46:53.034+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:53.057+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:46:53.059+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:46:53.059+07:00 DEBUG 29220 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:46:53.068+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:46:53.074+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:55.866+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:55.871+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:46:55.875+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id,
+        l1_0.created_at,
+        l1_0.recipe_id,
+        l1_0.user_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=?
+2025-05-20T21:46:55.919+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    delete 
+    from
+        likes 
+    where
+        like_id=?
+2025-05-20T21:46:55.952+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:46:55.959+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:46:55.964+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:56.717+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:56.722+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:46:56.725+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        is1_0.id 
+    from
+        id_seq is1_0 
+    order by
+        is1_0.id desc 
+    limit
+        ?
+2025-05-20T21:46:56.760+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        is1_0.id 
+    from
+        id_seq is1_0 
+    where
+        is1_0.id=?
+2025-05-20T21:46:56.778+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id,
+        l1_0.created_at,
+        l1_0.recipe_id,
+        l1_0.user_id 
+    from
+        likes l1_0 
+    where
+        l1_0.like_id=?
+2025-05-20T21:46:56.785+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        id_seq
+        (id) 
+    values
+        (?)
+2025-05-20T21:46:56.792+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        likes
+        (created_at, recipe_id, user_id, like_id) 
+    values
+        (?, ?, ?, ?)
+2025-05-20T21:46:56.813+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:46:56.819+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:46:56.823+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:56.833+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:46:56.839+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:46:56.843+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:57.920+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:57.924+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:46:57.927+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id,
+        l1_0.created_at,
+        l1_0.recipe_id,
+        l1_0.user_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=?
+2025-05-20T21:46:57.932+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    delete 
+    from
+        likes 
+    where
+        like_id=?
+2025-05-20T21:46:57.944+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:46:57.950+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:46:57.956+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:58.863+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:58.868+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:46:58.872+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        is1_0.id 
+    from
+        id_seq is1_0 
+    order by
+        is1_0.id desc 
+    limit
+        ?
+2025-05-20T21:46:58.874+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        is1_0.id 
+    from
+        id_seq is1_0 
+    where
+        is1_0.id=?
+2025-05-20T21:46:58.877+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id,
+        l1_0.created_at,
+        l1_0.recipe_id,
+        l1_0.user_id 
+    from
+        likes l1_0 
+    where
+        l1_0.like_id=?
+2025-05-20T21:46:58.879+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    insert 
+    into
+        id_seq
+        (id) 
+    values
+        (?)
+2025-05-20T21:46:58.881+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    insert 
+    into
+        likes
+        (created_at, recipe_id, user_id, like_id) 
+    values
+        (?, ?, ?, ?)
+2025-05-20T21:46:58.897+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:46:58.903+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:46:58.906+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:46:58.919+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:46:58.926+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:46:58.932+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:00.148+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:00.152+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:47:00.155+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id,
+        l1_0.created_at,
+        l1_0.recipe_id,
+        l1_0.user_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=?
+2025-05-20T21:47:00.162+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    delete 
+    from
+        likes 
+    where
+        like_id=?
+2025-05-20T21:47:00.177+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:47:00.183+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:47:00.187+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:00.687+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:00.690+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:47:00.693+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        is1_0.id 
+    from
+        id_seq is1_0 
+    order by
+        is1_0.id desc 
+    limit
+        ?
+2025-05-20T21:47:00.695+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        is1_0.id 
+    from
+        id_seq is1_0 
+    where
+        is1_0.id=?
+2025-05-20T21:47:00.697+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id,
+        l1_0.created_at,
+        l1_0.recipe_id,
+        l1_0.user_id 
+    from
+        likes l1_0 
+    where
+        l1_0.like_id=?
+2025-05-20T21:47:00.699+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    insert 
+    into
+        id_seq
+        (id) 
+    values
+        (?)
+2025-05-20T21:47:00.702+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    insert 
+    into
+        likes
+        (created_at, recipe_id, user_id, like_id) 
+    values
+        (?, ?, ?, ?)
+2025-05-20T21:47:00.723+07:00 DEBUG 29220 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:47:00.730+07:00 DEBUG 29220 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:47:00.737+07:00 DEBUG 29220 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:00.754+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:47:00.773+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:47:00.782+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:01.813+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:01.817+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:47:01.820+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id,
+        l1_0.created_at,
+        l1_0.recipe_id,
+        l1_0.user_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=?
+2025-05-20T21:47:01.822+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    delete 
+    from
+        likes 
+    where
+        like_id=?
+2025-05-20T21:47:01.837+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:47:01.842+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:47:01.847+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:02.392+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:02.395+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:47:02.398+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        is1_0.id 
+    from
+        id_seq is1_0 
+    order by
+        is1_0.id desc 
+    limit
+        ?
+2025-05-20T21:47:02.399+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        is1_0.id 
+    from
+        id_seq is1_0 
+    where
+        is1_0.id=?
+2025-05-20T21:47:02.402+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id,
+        l1_0.created_at,
+        l1_0.recipe_id,
+        l1_0.user_id 
+    from
+        likes l1_0 
+    where
+        l1_0.like_id=?
+2025-05-20T21:47:02.404+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    insert 
+    into
+        id_seq
+        (id) 
+    values
+        (?)
+2025-05-20T21:47:02.406+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    insert 
+    into
+        likes
+        (created_at, recipe_id, user_id, like_id) 
+    values
+        (?, ?, ?, ?)
+2025-05-20T21:47:02.418+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:47:02.426+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:47:02.433+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:02.445+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:47:02.451+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:47:02.468+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:09.100+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:47:09.106+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:47:09.108+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:09.130+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:47:09.135+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:47:09.136+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:47:09.140+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:47:09.143+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:34.949+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:47:34.954+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:47:34.956+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:34.970+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:47:34.970+07:00 DEBUG 29220 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:47:34.973+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:47:34.976+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:47:34.981+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:36.271+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T21:47:36.275+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T21:47:36.279+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id,
+        l1_0.created_at,
+        l1_0.recipe_id,
+        l1_0.user_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=?
+2025-05-20T21:47:36.282+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    delete 
+    from
+        likes 
+    where
+        like_id=?
+2025-05-20T21:47:36.299+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T21:47:36.304+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T21:47:36.309+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:03:44.184+07:00 DEBUG 29220 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:03:44.190+07:00 DEBUG 29220 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:03:44.193+07:00 DEBUG 29220 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:03:44.204+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:03:44.204+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:03:44.204+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:03:44.208+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:03:44.213+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:03:50.120+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:03:50.126+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:03:50.128+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:03:50.139+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:03:50.140+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:03:50.141+07:00 DEBUG 29220 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:03:50.145+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:03:50.152+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:05:46.028+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-05-20T22:05:46.032+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        f1_0.follow_id,
+        f1_0.follow_time,
+        f1_0.follower_id,
+        f1_0.following_id 
+    from
+        follows f1_0 
+    where
+        f1_0.following_id=?
+2025-05-20T22:05:46.034+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:05:46.039+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        f1_0.follow_id,
+        f1_0.follow_time,
+        f1_0.follower_id,
+        f1_0.following_id 
+    from
+        follows f1_0 
+    where
+        f1_0.follower_id=?
+2025-05-20T22:05:46.041+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:05:46.046+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.author_id=? 
+    order by
+        r1_0.created_at desc
+2025-05-20T22:05:46.050+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:05:46.052+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:05:46.053+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:05:46.056+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-05-20T22:05:46.059+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.author_id=? 
+    order by
+        r1_0.created_at desc
+2025-05-20T22:05:46.063+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:05:46.065+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        count(l1_0.like_id) 
+    from
+        likes l1_0 
+    where
+        l1_0.recipe_id=?
+2025-05-20T22:05:46.066+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:05:46.069+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        count(l1_0.like_id) 
+    from
+        likes l1_0 
+    where
+        l1_0.recipe_id=?
+2025-05-20T22:05:46.071+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:05:46.073+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        count(l1_0.like_id) 
+    from
+        likes l1_0 
+    where
+        l1_0.recipe_id=?
+2025-05-20T22:05:46.076+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-05-20T22:05:46.079+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id,
+        s1_0.created_at,
+        s1_0.recipe_id,
+        s1_0.user_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=?
+2025-05-20T22:05:46.085+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:05:46.088+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        count(l1_0.like_id) 
+    from
+        likes l1_0 
+    where
+        l1_0.recipe_id=?
+2025-05-20T22:05:46.090+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:05:46.093+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        count(l1_0.like_id) 
+    from
+        likes l1_0 
+    where
+        l1_0.recipe_id=?
+2025-05-20T22:05:46.096+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-05-20T22:05:46.099+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id,
+        l1_0.created_at,
+        l1_0.recipe_id,
+        l1_0.user_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=?
+2025-05-20T22:05:46.106+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:05:46.109+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        count(l1_0.like_id) 
+    from
+        likes l1_0 
+    where
+        l1_0.recipe_id=?
+2025-05-20T22:05:46.111+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        avg(r1_0.rating) 
+    from
+        rates r1_0 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:05:46.114+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        count(l1_0.like_id) 
+    from
+        likes l1_0 
+    where
+        l1_0.recipe_id=?
+2025-05-20T22:05:46.173+07:00  WARN 29220 --- [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2025-05-20T22:05:47.450+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:05:47.454+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:05:47.457+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:05:47.468+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:05:47.469+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:05:47.469+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:05:47.474+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:05:47.478+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:05:55.806+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:05:55.811+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:05:55.814+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:05:55.822+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:05:55.824+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:05:55.825+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:05:55.828+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:05:55.831+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:06:02.645+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:06:02.650+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:06:02.653+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:06:02.666+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:06:02.667+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:06:02.668+07:00 DEBUG 29220 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:06:02.675+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:06:02.678+07:00 DEBUG 29220 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:06:06.480+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:06:06.485+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:06:06.488+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:06:06.499+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:06:06.499+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:06:06.499+07:00 DEBUG 29220 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:06:06.505+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:06:06.509+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:06:07.459+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:06:07.463+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id,
+        s1_0.created_at,
+        s1_0.recipe_id,
+        s1_0.user_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=?
+2025-05-20T22:06:07.466+07:00 DEBUG 29220 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    delete 
+    from
+        saved 
+    where
+        save_id=?
+2025-05-20T22:06:10.461+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:06:10.466+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:06:10.469+07:00 DEBUG 29220 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:06:10.481+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:06:10.482+07:00 DEBUG 29220 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:06:10.482+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:06:10.488+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:06:10.494+07:00 DEBUG 29220 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:06:11.457+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:06:11.461+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        is1_0.id 
+    from
+        id_seq is1_0 
+    order by
+        is1_0.id desc 
+    limit
+        ?
+2025-05-20T22:06:11.463+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        is1_0.id 
+    from
+        id_seq is1_0 
+    where
+        is1_0.id=?
+2025-05-20T22:06:11.464+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id,
+        s1_0.created_at,
+        s1_0.recipe_id,
+        s1_0.user_id 
+    from
+        saved s1_0 
+    where
+        s1_0.save_id=?
+2025-05-20T22:06:11.466+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    insert 
+    into
+        id_seq
+        (id) 
+    values
+        (?)
+2025-05-20T22:06:11.468+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    insert 
+    into
+        saved
+        (created_at, recipe_id, user_id, save_id) 
+    values
+        (?, ?, ?, ?)
+2025-05-20T22:06:11.481+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:06:11.487+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:06:11.491+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:07:45.630+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:07:45.633+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:07:45.636+07:00 DEBUG 29220 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:07:45.647+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        r1_0.recipe_id,
+        r1_0.author_id,
+        r1_0.author_name,
+        r1_0.author_url,
+        r1_0.avatar_url,
+        r1_0.category_name,
+        r1_0.category_id,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.ingredients,
+        r1_0.instruction,
+        r1_0.name,
+        r1_1.average_rating,
+        r1_1.comment_count,
+        r1_1.like_count,
+        r1_1.rate_count,
+        r1_1.save_count 
+    from
+        recipes r1_0 
+    left join
+        recipe_stats r1_1 
+            on r1_0.recipe_id=r1_1.recipe_id 
+    where
+        r1_0.recipe_id=?
+2025-05-20T22:07:45.647+07:00 DEBUG 29220 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.save_id 
+    from
+        saved s1_0 
+    where
+        s1_0.user_id=? 
+        and s1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:07:45.648+07:00 DEBUG 29220 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        l1_0.like_id 
+    from
+        likes l1_0 
+    where
+        l1_0.user_id=? 
+        and l1_0.recipe_id=? 
+    limit
+        ?
+2025-05-20T22:07:45.654+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        c1_0.comment_id,
+        c1_0.comment_content,
+        c1_0.created_at,
+        c1_0.recipe_id,
+        c1_0.user_id 
+    from
+        comments c1_0 
+    where
+        c1_0.recipe_id=?
+2025-05-20T22:07:45.656+07:00 DEBUG 29220 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.user_id,
+        u1_0.avatar_url,
+        u1_0.date_of_birth,
+        u1_0.email,
+        u1_0.firstname,
+        u1_0.lastname,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.user_id=?
+2025-05-20T22:10:11.726+07:00  INFO 29220 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-20T22:10:11.730+07:00  INFO 29220 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-20T22:10:11.756+07:00  INFO 29220 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-20T22:10:11.759+07:00  INFO 29220 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-20T22:10:11.762+07:00  INFO 29220 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
