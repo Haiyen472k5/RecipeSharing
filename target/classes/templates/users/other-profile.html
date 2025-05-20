@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Cá Nhân</title>
+    <style>
+        body { font-family: sans-serif; max-width: 700px; margin: 40px auto; overflow: auto; }
+        .avatar { width: 150px; border-radius: 50%; }
+        .info { margin-top: 20px; }
+        .stats { font-weight: bold; margin-top: 10px; }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .grid-item img:hover {
+            transform: scale(1.03);
+        }
+
+        .modal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            padding: 20px; /* tránh bị sát mép trên mobile */
+            box-sizing: border-box;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 24px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Optional animation */
+        @keyframes fadeIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<img th:src="${user.avatarUrl}" class="avatar" alt="avatar"
+     style="width: 180px;">
+<div class="info">
+    <h2 th:text="${user.fullName}">Họ tên</h2>
+    <p><strong>Username:</strong> <span th:text="${user.username}">username</span></p>
+    <p><strong>Ngày sinh:</strong> <span th:text="${user.dateOfBirth}">date</span></p>
+    <p class="stats">
+        <span style="cursor:pointer;" onclick="openUserListModal('follower')">Follower: <span th:text="${user.followersCount}">0</span> </span>|
+        <span style="cursor:pointer;" onclick="openUserListModal('following')">Following: <span th:text="${user.followingCount}">0</span> </span>|
+        Bài viết: <span th:text="${user.totalPosts}">0</span> |
+        ★ <span th:text="${user.averageRating}">0.0</span>
+    </p>
+</div>
+
+<!-- Modal dung chung -->
+<div id="userListModal" style="display:none; position:fixed; top:20%; left:50%; transform:translateX(-50%);
+    background:white; border:1px solid #ccc; padding:20px; max-width:400px; z-index:1000;">
+    <h3 id="userListTitle">Danh sách</h3>
+    <ul id="userList"></ul>
+    <button onclick="closeUserListModal()">Đóng</button>
+</div>
+
+<!-- Lớp phủ mờ nền -->
+<div id="modalBackdrop" onclick="closeUserListModal()"
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#00000080; z-index:999;">
+</div>
+
+
+<a href="/profile"><button>Back</button><button>Follow</button></a>
+
+
+<!-- Bài viết đã đăng -->
+<div id="postedTab">
+    <h3>Bài viết đã đăng</h3>
+    <div th:if="${#lists.isEmpty(posts)}">Chưa có bài viết nào.</div>
+
+    <div class="grid-container">
+        <div th:each="post : ${posts}" class="grid-item"
+             th:attr="data-id=${post.id}" style="cursor:pointer;" onclick="openRecipeModal(this.getAttribute('data-id'))">
+            <img th:src="${post.imageUrl}" th:alt="${post.title}">
+        </div>
+    </div>
+</div>
+
+<div id="recipeModal" class="modal" style="display:none">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeRecipeModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p><strong>Người đăng:</strong> <img id="modal-avatar" width="30"> <span id="modal-author"></span></p>
+        <p><strong>Description:</strong> <span id="modal-description"></span></p>
+        <img id="modal-image" width="300"><br>
+        <p>Thể loại: <span id="modal-category"></span></p>
+        <p>★
+            <span id="modal-rating"></span> |
+            <button id="modal-likeBtn" style="cursor:pointer;" onclick="toggleLike()">🤍</button>
+            <span id="modal-likes"> lượt thích</span> |
+            <button id="modal-saveBtn" style="cursor: pointer;" onclick="toggleSave()">🔖 Save</button>
+
+
+        </p>
+        <h3>Bình luận: <span id="modal-comment-count"></span></h3>
+        <ul id="modal-comments"></ul>
+    </div>
+</div>
+
+
+
+
+<script th:inline="javascript">
+
+    const currentUsername = /*[[${user.username}]]*/ ""
+    const currentUserId = /*[[${user.id}]]*/ ""
+    console.log(currentUsername);
+    console.log(currentUserId)
+
+    function openUserListModal(type) {
+        const title = type === 'follower' ? "Follower" : "Following";
+        const modal = document.getElementById("userListModal");
+        const backdrop = document.getElementById(("modalBackdrop"));
+        const list = document.getElementById("userList");
+        const modalTitle = document.getElementById("userListTitle");
+
+        modalTitle.textContent = title;
+        list.innerHTML = "<li>Loading...</li>";
+        modal.style.display = "block";
+        backdrop.style.display = "block";
+
+        fetch(`/api/users/${currentUsername}/${type}`)
+            .then(res => res.json())
+            .then(data => {
+                list.innerHTML = "";
+                if (data.length === 0) {
+                    list.innerHTML = "<li>Không có người nào.</li>";
+                }
+                else {
+                    data.forEach(user => {
+                        const li = document.createElement("li");
+                        li.innerHTML = `
+                            <img src="${user.avatarUrl}" width="40" style="border-radius:50%; vertical-align:middle; margin-right:6px;">
+                            ${user.username}
+                            <a href="/user/${user.username}" style="margin-left:10px;">Xem</a>
+                        `;
+                        list.appendChild(li);
+                    });
+                }
+            });
+    }
+
+    function closeUserListModal() {
+        document.getElementById("userListModal").style.display = "none";
+        document.getElementById("modalBackdrop").style.display = "none";
+    }
+
+    let currentRecipeId = null;
+    function openRecipeModal(recipeId) {
+        currentRecipeId = recipeId;
+
+        fetch(`/api/recipes/${recipeId}`)
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("modal-title").innerText = data.title;
+                document.getElementById("modal-author").innerText = data.authorName;
+                document.getElementById("modal-avatar").src = data.authorUrl;
+                document.getElementById("modal-description").innerText = data.description;
+                document.getElementById("modal-image").src = data.imageUrl;
+                document.getElementById("modal-category").innerText = data.category;
+                document.getElementById("modal-rating").innerText = data.averageRating;
+                document.getElementById("modal-likes").innerText = data.likeCount;
+                const ul = document.getElementById("modal-comments");
+                ul.innerHTML = "";
+                data.comments.forEach(c => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `<strong>${c.username}:</strong> ${c.content}`;
+                    ul.appendChild(li);
+                });
+
+                updateLikeCount();
+                loadLikeStatus();
+                document.getElementById("recipeModal").style.display = "flex";
+            });
+        /// Khi click vào một ảnh công thức
+    }
+
+
+
+    function closeRecipeModal() {
+        document.getElementById("recipeModal").style.display = "none";
+    }
+
+    function loadLikeStatus() {
+        fetch(`/api/recipes/${currentRecipeId}/liked?userId=${currentUserId}`)
+            .then(res => res.json())
+            .then(liked => {
+                document.getElementById("modal-likeBtn").innerText = liked ? "❤️" : "🤍";
+            });
+    }
+
+    function updateLikeCount() {
+        fetch(`/api/recipes/${currentRecipeId}`)
+            .then(res => res.json())
+            .then(recipe => {
+                document.getElementById("modal-likes").innerText = `${recipe.likeCount} lượt thích`;
+            });
+    }
+
+    function toggleLike() {
+        fetch(`/api/recipes/${currentRecipeId}/like?userId=${currentUserId}`, {
+            method: 'POST'
+        })
+            .then(res => res.json())
+            .then(liked => {
+                document.getElementById("modal-likeBtn").innerText = liked ? "❤️" : "🤍";
+                updateLikeCount();
+                console.log(currentRecipeId);
+                syncLikedTab(liked, currentRecipeId);
+            });
+    }
+
+    function syncLikedTab(liked, recipeId) {
+        const container = document.getElementById("liked-container");
+        const emptyMessage = document.getElementById("liked-empty");
+        const likedPostId = "liked-post-" + recipeId;
+
+        console.log("recipeId", recipeId);
+
+        if (liked) {
+            // Nếu chưa tồn tại => thêm vào
+            if (!document.getElementById(likedPostId)) {
+                fetch(`/api/recipes/${recipeId}`)
+                    .then(res => res.json())
+                    .then(post => {
+                        const div = document.createElement("div");
+                        div.className = "grid-item";
+                        div.id = likedPostId;
+                        console.log(likedPostId);
+                        div.setAttribute("data-id", recipeId);
+                        div.style.cursor = "pointer";
+                        div.onclick = function () { openRecipeModal(recipeId); };
+                        const img = document.createElement("img");
+                        img.src = post.imageUrl;
+                        img.alt = post.title;
+
+                        div.appendChild(img);
+                        container.appendChild(div);
+
+                        // Ẩn dòng "Chưa có bài viết nào."
+                        if (emptyMessage) emptyMessage.style.display = "none";
+                    });
+            }
+        } else {
+            // Nếu tồn tại => gỡ khỏi danh sách
+            const likedPost = document.getElementById(likedPostId);
+            if (likedPost) {
+                likedPost.remove();
+            }
+
+            // Nếu danh sách rỗng sau khi xóa => hiện "Chưa có bài viết nào."
+            if (container.children.length === 0 && emptyMessage) {
+                emptyMessage.style.display = "block";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
