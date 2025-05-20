@@ -142,7 +142,7 @@
 
 <!-- Bài viết đã thích -->
 <div id="savedTab" style="display: none;">
-    <h3>Bài viết đã thích</h3>
+    <h3>Bài viết đã lưu</h3>
     <div id="saved-empty" th:if="${#lists.isEmpty(saves)}">Chưa có bài viết nào.</div>
 
     <div class="grid-container" id="saved-container">
@@ -194,6 +194,7 @@
     function showComment() {
         const form = document.getElementById("comment");
         form.style.display = (form.style.display === "none" || form.style.display === "") ? "block" : "none";
+        document.getElementById("commentText").focus(); // Tự động focus vào ô nhập
     }
 
     const currentUsername = /*[[${user.username}]]*/ ""
