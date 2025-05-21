@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface FollowService {
     boolean isFollowing(String followerId, String followingId);
-    void follow(String followerId, String followingId);
+    boolean toggleFollow(String followerId, String followingId);
     void unfollow(String followerId, String followingId);
     int countFollowers(String userId);
     int countFollowing(String userId);

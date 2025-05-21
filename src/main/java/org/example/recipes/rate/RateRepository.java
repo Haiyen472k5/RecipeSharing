@@ -13,6 +13,7 @@ public interface RateRepository extends JpaRepository<Rate, String> {
     Float findAverageRating(String recipeId);
 
     Rate findByUserIdAndRecipeId(String userId, String recipeId);
+    List<Rate> findByRecipeId(String recipeId);
 
     List<Rate> findByOrderByCreatedAtDesc(Pageable pageable);
 

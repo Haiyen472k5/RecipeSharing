@@ -329,10 +329,10 @@ DELIMITER $$
 CREATE TRIGGER `trg_after_rate_insert` AFTER INSERT ON `rates` FOR EACH ROW BEGIN
   UPDATE recipe_stats
   SET
-    rate_count = rate_count + 1,
     average_rating =
       (average_rating * (rate_count) + NEW.rating)
-      / (rate_count)
+      / (rate_count + 1)
+      rate_count = rate_count + 1,
   WHERE recipe_id = NEW.recipe_id;
 END
 $$

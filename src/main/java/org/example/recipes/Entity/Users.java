@@ -31,7 +31,7 @@ public class Users {
     @Column(name = "password", nullable = false, length = 255)
     private String password;
 
-    @Column(name = "role", nullable = false, length = 5)
+    @Column(name = "role", nullable = false, length = 10)
     private String role;
 
     @Column(name="avatar_url", length=255)

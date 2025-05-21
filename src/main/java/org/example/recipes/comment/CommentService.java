@@ -7,6 +7,6 @@ import java.util.List;
 public interface CommentService {
     int countComments(String recipeId);
     List<Comment> listComments(String recipeId);
-    void addComment(String username, String recipeId, String content);
+    void addComment(String userId, String recipeId, String content);
     void deleteComment(String commentId);
 }

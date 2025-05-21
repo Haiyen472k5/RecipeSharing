@@ -6,6 +6,7 @@ import org.example.recipes.recipe.RecipeSimpleDTO;
 import org.example.recipes.user.UserPublicDTO;
 import org.example.recipes.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -74,6 +75,19 @@ public class InfoController {
         model.addAttribute("user", user);
         model.addAttribute("posts", posts);
         return "users/other-profile"; // Tương ứng templates/user-profile.html
+
+    }
+
+
+    @GetMapping("/admin")
+    @PreAuthorize("hasRole('ADMIN')")
+    public String showAdminPage() {
+        String currentName = getCurrentUsername();
+        if (currentName.equals("admin")) {
+            return "admin";
+        } else {
+            return "redirect:/profile";
+        }
 
     }
 

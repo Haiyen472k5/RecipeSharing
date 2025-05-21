@@ -31,6 +31,7 @@ public class AdminServiceImpl implements AdminService {
     public List<UserPublicDTO> getAllUsers() {
         // Lấy tất cả Users rồi map qua UserPublicDTO qua UserService
         return userRepo.findAll().stream()
+                .filter(user -> !"admin".equalsIgnoreCase(user.getUsername()))
                 .map(u -> userService.getPublicProfile(u.getUsername()))
                 .collect(Collectors.toList());
     }

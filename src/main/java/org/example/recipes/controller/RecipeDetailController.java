@@ -2,7 +2,11 @@ package org.example.recipes.controller;
 
 import org.example.recipes.Entity.Users;
 import org.example.recipes.comment.CommentDTO;
+import org.example.recipes.comment.CommentRequest;
+import org.example.recipes.comment.CommentService;
 import org.example.recipes.like.LikeService;
+import org.example.recipes.rate.RateRequest;
+import org.example.recipes.rate.RateService;
 import org.example.recipes.recipe.RecipeDetailDTO;
 import org.example.recipes.recipe.RecipeService;
 import org.example.recipes.recipe.Recipes;
@@ -24,6 +28,8 @@ public class RecipeDetailController {
     @Autowired private RecipeService recipeService;
     @Autowired private UserRepository userRepository;
     @Autowired private SaveService saveService;
+    @Autowired private CommentService commentService;
+    @Autowired private RateService rateService;
 
     public RecipeDetailController(RecipeService recipeService) {
         this.recipeService = recipeService;
@@ -83,5 +89,24 @@ public class RecipeDetailController {
         return ResponseEntity.ok(saved);
     }
 
+    @PostMapping("/{id}/comment")
+    public ResponseEntity<?> postComment(@PathVariable String id, @RequestBody CommentRequest request) {
+        try {
+            commentService.addComment(request.getUserId(), id, request.getContent());
+            return ResponseEntity.ok("Gửi bình luận thành công");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Lỗi: " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/{id}/rating")
+    public ResponseEntity<?> postRating(@PathVariable String id, @RequestBody RateRequest request) {
+        try {
+            rateService.rate(request.getUserId(), id, request.getRating());
+            return  ResponseEntity.ok("Đánh giá thành công.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Lỗi: " + e.getMessage());
+        }
+    }
 
 }

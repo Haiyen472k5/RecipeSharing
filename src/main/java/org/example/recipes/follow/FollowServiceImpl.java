@@ -35,19 +35,22 @@ public class FollowServiceImpl implements FollowService {
 
     @Override
     @Transactional
-    public void follow(String followerId, String followingId) {
+    public boolean toggleFollow(String followerId, String followingId) {
         if (followerId.equals(followingId)) {
             throw new IllegalArgumentException("Không thể follow chính mình");
         }
         if (repo.existsByFollowerIdAndFollowingId(followerId, followingId)) {
-            return; // hoặc throw BusinessException nếu bạn muốn báo lỗi
+            unfollow(followerId, followingId);
+            return false;
+        } else {
+            Follow e = new Follow();
+            e.setFollowId(idGenerator.generateId());
+            e.setFollowerId(followerId);
+            e.setFollowingId(followingId);
+            e.setFollowTime(LocalDateTime.now());
+            repo.save(e);
+            return true;
         }
-        Follow e = new Follow();
-        e.setFollowId(idGenerator.generateId());
-        e.setFollowerId(followerId);
-        e.setFollowingId(followingId);
-        e.setFollowTime(LocalDateTime.now());
-        repo.save(e);
     }
 
     @Override

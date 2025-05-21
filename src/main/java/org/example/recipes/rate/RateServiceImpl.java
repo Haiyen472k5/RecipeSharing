@@ -3,17 +3,28 @@ package org.example.recipes.rate;
 
 import org.example.recipes.Entity.Rate;
 import org.example.recipes.login.IdGeneratorService;
+import org.example.recipes.recipe.RecipeRepository;
+import org.example.recipes.recipe.RecipeService;
+import org.example.recipes.recipe.Recipes;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class RateServiceImpl implements RateService {
     private final RateRepository repo;
     private final IdGeneratorService idGenerator;
+    private final RateRepository rateRepo;
+    private final RecipeService recipeService;
+    private final RecipeRepository recipeRepo;
 
-    public RateServiceImpl(RateRepository repo, IdGeneratorService idGenerator) {
+    public RateServiceImpl(RateRepository repo, IdGeneratorService idGenerator, RateRepository rateRepo, RecipeService recipeService, RecipeRepository recipeRepo) {
         this.repo = repo;
         this.idGenerator = idGenerator;
+        this.rateRepo = rateRepo;
+        this.recipeService = recipeService;
+        this.recipeRepo = recipeRepo;
     }
 
     @Override
@@ -41,6 +52,19 @@ public class RateServiceImpl implements RateService {
         }
         e.setRating(rating);
         repo.save(e);
+
+        // Cập nhật averageRating trong bảng recipes
+        //List<Rate> ratings = rateRepo.findByRecipeId(recipeId);
+        /*float avg = (float) ratings.stream().mapToInt(Rate::getRating).average().orElse(0);
+        avg = Math.round(avg * 100.0) / 100.0f;
+        Recipes recipe = recipeService.findById(recipeId).orElseThrow();
+        recipe.setAverageRating(avg);
+        recipeRepo.save(recipe);*/
+
+
+
+
+
     }
 
     @Override

@@ -75,6 +75,7 @@
 
 </head>
 <body>
+<a th:href="@{/auth/logout}" style="position: absolute; top: 20px; right: 30px;">Đăng xuất</a>
 
 <img th:src="${user.avatarUrl}" class="avatar" alt="avatar">
 <div class="info">
@@ -162,19 +163,30 @@
         <p><strong>Description:</strong> <span id="modal-description"></span></p>
         <img id="modal-image" width="300"><br>
         <p>Thể loại: <span id="modal-category"></span></p>
-        <p>★
-            <span id="modal-rating"></span> |
-            <button id="modal-likeBtn" style="cursor:pointer;" onclick="toggleLike()">🤍</button>
-            <span id="modal-likes"> lượt thích</span> |
-            <button id="modal-saveBtn" style="cursor: pointer;" onclick="toggleSave()">🔖</button>
-            <button id="modal-commentBtn" style="cursor: pointer;" onclick="showComment()">💬</button>
-            <span id="modal-comment-count"></span>
+        <p>
 
+            <button id="modal-likeBtn" style="cursor:pointer;" onclick="toggleLike()">🤍</button>
+            <span id="modal-likes"></span> |
+            <button id="modal-saveBtn" style="cursor: pointer;" onclick="toggleSave()">🔖</button> |
+            <button id="modal-commentBtn" style="cursor: pointer;" onclick="showComment()">💬</button> |
+            <span id="modal-comment-count"></span> |
+            ★ <span id="modal-rating"></span>
+            <span id="user-rating" style="cursor: pointer">
+        <!-- 5 ngôi sao để người dùng click -->
+                <span onclick="rateRecipe(1)">⭐</span>
+                <span onclick="rateRecipe(2)">⭐</span>
+                <span onclick="rateRecipe(3)">⭐</span>
+                <span onclick="rateRecipe(4)">⭐</span>
+                <span onclick="rateRecipe(5)">⭐</span>
+            </span>
 
         </p>
         <h3>Bình luận: </h3>
         <ul id="modal-comments"></ul>
-        <form id="comment" style="display: none">
+        <button id="toggle-comment-btn" style="margin-top: 8px;" onclick="toggleComments()" hidden>
+            Xem thêm
+        </button>
+        <form id="comment" style="display: none;" onsubmit="submitComment(event)">
             <label for="commentText"></label>
             <input type="text" id="commentText" name="commentText" placeholder="Nhập comment" required>
         </form>
@@ -191,16 +203,126 @@
         document.getElementById("savedTab").style.display = (tabName === "saved") ? "block" : "none";
     }
 
+
+
+    const currentUsername = /*[[${user.username}]]*/ ""
+    const currentUserId = /*[[${user.id}]]*/ ""
+    console.log(currentUsername);
+    console.log(currentUserId)
+    let currentRecipeId = null;
+
+    // Rating
+    function rateRecipe(score) {
+        if (!currentUserId || !currentRecipeId) {
+            alert("Bạn cần đăng nhập để đánh giá.");
+            return;
+        }
+
+        const body = {
+            userId: currentUserId,
+            recipeId: currentRecipeId,
+            rating: score
+        };
+
+        fetch(`/api/recipes/${currentRecipeId}/rating`,{
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body)
+        })
+            .then(res => res.ok ? res.text() : res.text().then(t => { throw new Error(t) }))
+            .then(msg => {
+                console.log(msg);
+                updateRating(); // cập nhật lại trung bình
+            })
+            .catch(err => alert("Lỗi đánh giá: " + err.message));
+    }
+
+    function updateRating() {
+        fetch(`/api/recipes/${currentRecipeId}`)
+            .then(res => res.json())
+            .then(recipe => {
+                document.getElementById("modal-rating").innerText = recipe.averageRating;
+            });
+    }
+
     function showComment() {
         const form = document.getElementById("comment");
         form.style.display = (form.style.display === "none" || form.style.display === "") ? "block" : "none";
         document.getElementById("commentText").focus(); // Tự động focus vào ô nhập
     }
 
-    const currentUsername = /*[[${user.username}]]*/ ""
-    const currentUserId = /*[[${user.id}]]*/ ""
-    console.log(currentUsername);
-    console.log(currentUserId)
+    function submitComment(event) {
+        event.preventDefault();
+        const content = document.getElementById("commentText").value.trim();
+        if (!content) return;
+
+        const body = {
+            userId: currentUserId,
+            recipeId: currentRecipeId,
+            content: content
+        };
+
+        console.log(currentRecipeId);
+
+        fetch(`/api/recipes/${currentRecipeId}/comment`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        })
+            .then(res => res.ok ? res.text() : res.text().then(t => { throw new Error(t); }))
+            .then(msg => {
+                document.getElementById("commentText").value = "";
+                loadComments(); // ✅ cập nhật danh sách bình luận ngay
+            })
+            .catch(err => alert("Lỗi gửi bình luận: " + err.message));
+    }
+
+    let allComments = [];
+    let commentsExpanded = false;
+
+    function loadComments() {
+        fetch(`/api/recipes/${currentRecipeId}`)
+            .then(res => res.json())
+            .then(data => {
+                allComments = data.comments || [];
+                commentsExpanded = false;
+                renderComments();
+            });
+    }
+
+    function renderComments() {
+        const ul = document.getElementById("modal-comments");
+        const toggleBtn = document.getElementById("toggle-comment-btn");
+        const countSpan = document.getElementById("modal-comment-count");
+
+        ul.innerHTML = "";
+        countSpan.innerText = allComments.length + ' bình luận';
+
+        const displayCount = commentsExpanded ? allComments.length : Math.min(2, allComments.length);
+        const visibleComments = allComments.slice(0, displayCount);
+
+        visibleComments.forEach(c => {
+            const li = document.createElement("li");
+            li.innerHTML = `<strong>${c.username}:</strong> ${c.content}`;
+            ul.appendChild(li);
+        });
+
+        // Hiển thị nút toggle nếu có nhiều hơn 5 comment
+        if (allComments.length > 2) {
+            toggleBtn.hidden = false;
+            toggleBtn.innerText = commentsExpanded ? "Rút gọn" : "Xem thêm";
+        } else {
+            toggleBtn.hidden = true;
+        }
+    }
+
+    function toggleComments() {
+        commentsExpanded = !commentsExpanded;
+        renderComments();
+    }
+
+
+
 
     function openUserListModal(type) {
         const title = type === 'follower' ? "Follower" : "Following";
@@ -240,7 +362,7 @@
         document.getElementById("modalBackdrop").style.display = "none";
     }
 
-    let currentRecipeId = null;
+
     function openRecipeModal(recipeId) {
         currentRecipeId = recipeId;
 
@@ -264,11 +386,10 @@
                     li.innerHTML = `<strong>${c.username}:</strong> ${c.content}`;
                     ul.appendChild(li);
                 });
-
                 updateLikeCount();
                 loadLikeStatus();
                 loadSaveStatus();
-
+                loadComments();
                 document.getElementById("recipeModal").style.display = "flex";
             });
         /// Khi click vào một ảnh công thức
